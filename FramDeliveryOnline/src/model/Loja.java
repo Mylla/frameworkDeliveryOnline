@@ -1,7 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+
 public abstract class Loja {
-	private int codigo;
+	private String codigo;
 	private String logotipo;  
 	private String nome;
 	private String tipo;
@@ -14,12 +16,12 @@ public abstract class Loja {
 	private String cnpj;
 	private String responsavel;
 	private String email;
-	private String areasEntrega;
+	private ArrayList <String> areasEntrega = new ArrayList <String> ();
 	private String site;
 
-	public Loja(int codigo, String logotipo,String nome,String tipo,String endereco,String bairro,
+	public Loja(String codigo, String logotipo,String nome,String tipo,String endereco,String bairro,
 			String cep,String estado,String cidade,String telefone,String cnpj,String responsavel,String email,
-			String areasEntrega,String site) {
+			ArrayList <String> areasEntrega,String site) {
 		// TODO Auto-generated constructor stub
 		super();
 		this.codigo = codigo;
@@ -39,11 +41,11 @@ public abstract class Loja {
 		this.site = site;
 	}
 
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	
@@ -75,7 +77,7 @@ public abstract class Loja {
 		return endereco;
 	}
 
-	public void setEndereco(String endereço) {
+	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 
@@ -143,12 +145,12 @@ public abstract class Loja {
 		this.email = email;
 	}
 
-	public String getAreasEntrega() {
-		return areasEntrega;
+	public void setAreasEntrega(ArrayList<String> areasEntrega) {
+		this.areasEntrega = areasEntrega;
 	}
 
-	public void setAreasEntrega(String areasEntrega) {
-		this.areasEntrega = areasEntrega;
+	public ArrayList<String> getAreasEntrega() {
+		return areasEntrega;
 	}
 
 	public String getSite() {
