@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public abstract class Loja {
+public class Loja {
 	private String codigo;
 	private String logotipo;  
 	private String nome;
