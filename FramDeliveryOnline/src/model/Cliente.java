@@ -1,11 +1,7 @@
 package model;
 
 public class Cliente extends Pessoa{
-	private UpStatus status;  // FALTA CORRIGIR ALTERACAO DE STATUS
-	//private boolean isMaster = false;
-	
-	
-	
+	protected ClienteStatus status; 	
 
 	public Cliente(String imagem, String nome, String cpf, String dataNascimento, String endereco,
 			String cidade, String estado, String cep, String email, String login, String senha,
@@ -13,21 +9,21 @@ public class Cliente extends Pessoa{
 		// TODO Auto-generated constructor stub
 		super (imagem, nome, cpf, dataNascimento, endereco, cidade, estado, cep, email, login, senha);
 		
-		this.status = new isComum();
+		this.status = new UpStatus();
 	
 	}
 	
 	public void isComum(){
-		status.isComum(this);
+		status = status.isComum();
 	}
 	
 	public void isMaster(){
-		status.isMaster(this);
+		status = status.isMaster();
 	}
 	
-	public void setStatus(UpStatus status){
+	/*public void setStatus(UpStatus status){
 		this.status = status;
-	}
+	}*/
 	
 	
 }
