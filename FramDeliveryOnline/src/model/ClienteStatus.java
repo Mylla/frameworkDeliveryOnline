@@ -1,7 +1,8 @@
 package model;
 
 public interface ClienteStatus {
-	ClienteStatus isComum();
-	ClienteStatus isMaster();
-
+	
+	public abstract ClienteStatus isComum();
+	
+	public abstract ClienteStatus isMaster();
 }
