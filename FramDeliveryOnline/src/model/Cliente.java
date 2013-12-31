@@ -1,6 +1,6 @@
 package model;
 
-public class Cliente extends Pessoa{
+public class Cliente extends Pessoa implements ClienteObserver{
 	
 	protected ClienteStatus status; 	
 
@@ -18,6 +18,12 @@ public class Cliente extends Pessoa{
 	
 	public void isMaster(){
 		status = status.isMaster();
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
