@@ -1,20 +1,33 @@
 package controller;
 
-import model.Pessoa;
+import model.*;
 
 public class LoginBusiness {
-	
-	private Pessoa pessoa;
-	
-	public LoginBusiness (Pessoa pessoa){
-		
-		this.pessoa = pessoa;
+
+	private Cliente cliente;
+	private Administrador administrador;
+
+	public LoginBusiness(Cliente cliente) {
+
+		this.cliente = cliente;
 	}
-	
-	public boolean Login(Pessoa pessoa){
-		
-		if(pessoa.getLogin().equals("adm") && pessoa.getSenha().equals("adm"))
-		{
+
+	public LoginBusiness(Administrador administrador) {
+
+		this.administrador = administrador;
+	}
+
+	public boolean Login(Cliente cliente) {
+
+		if (cliente.getLogin().equals("cliente") && cliente.getSenha().equals("cliente")) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean Login(Administrador adm) {
+
+		if (adm.getLogin().equals("admin") && adm.getSenha().equals("admin")) {
 			return true;
 		}
 		return false;
