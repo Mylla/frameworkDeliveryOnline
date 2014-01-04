@@ -25,8 +25,11 @@ public class ConfInicial {
 		for(int i=0; i<10; i++)
 		{
 			this.clientes.add(new Cliente("imagem"+i, "cliente"+i, "123456789"+i, "24/12/1970", "Rua"+i, "Salvador", "Bahia", "40400000", "cliente"+i+"@gmail.com", "cliente"+i, "cliente"+i ));
+			FactoryDoces fabricaDoces = new FactoryDoces();
+			Produto doce = fabricaDoces.create("codigo"+i, "imagem"+i, "doce"+i, "tipo"+i, "descrição"+i, 100, 10, 0.8*i, 0, 0.3*i);
+			this.produtos.add(doce);		
+		}	
 		
-		}
 		
 	}
 
