@@ -1,6 +1,16 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import model.Administrador;
+import model.Carrinho;
+import model.Cliente;
+import model.Compra;
+import model.FormaEntrega;
+import model.FormaPagamento;
+import model.ItemProduto;
+import model.Produto;
 
 /*Classe que simula um banco de dados*/
 
@@ -8,17 +18,18 @@ public class ConfInicial {
 
 	// TODO adicionar as classes que faltam
 
-	private List<Administrador> administradores;
-	private List<Carrinho> carrinhos;
-	private List<Cliente> clientes;
-	private List<Compra> compras;
-	private List<Produto> produtos;
-	private List<FormaEntrega> formasEntrega;
-	private List<FormaPagamento> formasPagamento;
-	private List<ItemProduto> itensProduto;
-	private List<Loja> lojas;
+	private List<Administrador> administradores = new ArrayList<Administrador>();
+	private List<Carrinho> carrinhos = new ArrayList<Carrinho>();
+	private List<Cliente> clientes = new ArrayList<Cliente>();
+	private List<Compra> compras = new ArrayList<Compra>();
+	private List<Produto> produtos = new ArrayList<Produto>();
+	private List<FormaEntrega> formasEntrega = new ArrayList<FormaEntrega>();
+	private List<FormaPagamento> formasPagamento = new ArrayList<FormaPagamento>();
+	private List<ItemProduto> itensProduto = new ArrayList<ItemProduto>();
+	private List<Loja> lojas = new ArrayList<Loja>();
 
-	public ConfInicial() {
+	//tirei o construtor p funcionar rs
+	public void configura() {
 		this.administradores.add(new Administrador("adm.jpg", "adm", "adm",
 				"adm", "adm", "adm", "adm", "adm", "adm", "admin", "admin",
 				"adm"));

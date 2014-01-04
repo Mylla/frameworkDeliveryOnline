@@ -1,36 +1,39 @@
 package controller;
 
-import model.*;
+import java.util.List;
+
+import model.ConfInicial;
+import model.Administrador;
+import model.Cliente;
 
 public class LoginBusiness {
 
-	private Cliente cliente;
-	private Administrador administrador;
-
-	public LoginBusiness(Cliente cliente) {
-
-		this.cliente = cliente;
+	public LoginBusiness() {
+		super();
 	}
 
-	public LoginBusiness(Administrador administrador) {
+	public boolean Login(String login, String senha) {
 
-		this.administrador = administrador;
-	}
-
-	public boolean Login(Cliente cliente) {
-
-		if (cliente.getLogin().equals("cliente") && cliente.getSenha().equals("cliente")) {
-			return true;
+		ConfInicial ci = new ConfInicial();
+		ci.configura();
+		boolean logado = false;
+		List<Administrador> adm = ci.getAdministradores();
+		List<Cliente> cliente = ci.getClientes();
+		
+		for(int i=0; i < adm.size();i++)
+		{
+			if (adm.get(i).getLogin().equals(login) && adm.get(i).getSenha().equals(senha)) {
+				logado = true;
+			}
 		}
-		return false;
-	}
-
-	public boolean Login(Administrador adm) {
-
-		if (adm.getLogin().equals("admin") && adm.getSenha().equals("admin")) {
-			return true;
+		
+		for(int i=0; i < cliente.size();i++)
+		{
+			if (cliente.get(i).getLogin().equals(login) && cliente.get(i).getSenha().equals(senha)) {
+				logado = true;
+			}
 		}
-		return false;
+		
+		return logado;
 	}
-
 }
