@@ -2,40 +2,33 @@ package model;
 
 public class Compra {
 	
-	protected CompraStatus status;
-	
+		
 	private Carrinho carrinho;
 	private FormaPagamento formaPagamento;
 	private FormaEntrega formaEntrega;
+	private StatusCompra status;
 	
-	public Compra(CompraStatus status, Carrinho carrinho,
+	
+	public Compra(StatusCompra status, Carrinho carrinho,
 			FormaPagamento formaPagamento, FormaEntrega formaEntrega) {
 		super();
-		this.status = new CompraImpedida();
 		this.carrinho = carrinho;
 		this.formaPagamento = formaPagamento;
 		this.formaEntrega = formaEntrega;
 	}
 	
-	public void isImpedida(){
-		status = status.isImpedida();
-	}
-	
-	public void isAndamento(){
-		status = status.isAndamento();
-	}
-	
-	public void isFinalizada(){
-		status = status.isFinalizada();
-	}
+	public enum StatusCompra {
 
-	public CompraStatus getStatus() {
+		impedida,  andamento , finalizada;
+	}
+	
+	public StatusCompra getStatus() {
 		return status;
 	}
-
-	/*public void setStatus(CompraStatus status) {
+	
+	public StatusCompra setStatus(StatusCompra status) {
 		this.status = status;
-	}*/
+	}
 
 	public Carrinho getCarrinho() {
 		return carrinho;

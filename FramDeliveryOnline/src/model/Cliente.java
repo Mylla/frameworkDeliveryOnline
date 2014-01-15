@@ -12,12 +12,8 @@ public class Cliente extends Pessoa implements ClienteObserver{
 		this.status = new ClienteComum();
 	}
 	
-	public void isComum(){
-		status = status.isComum();
-	}
-	
-	public void isMaster(){
-		status = status.isMaster();
+	public void calculaDesconto(){
+		
 	}
 
 	@Override

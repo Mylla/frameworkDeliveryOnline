@@ -2,7 +2,6 @@ package model;
 
 public interface ClienteStatus {
 	
-	public abstract ClienteStatus isComum();
+	public abstract void calculaDesconto();
 	
-	public abstract ClienteStatus isMaster();
 }
