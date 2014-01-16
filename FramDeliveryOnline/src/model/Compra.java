@@ -26,7 +26,7 @@ public class Compra {
 		return status;
 	}
 	
-	public StatusCompra setStatus(StatusCompra status) {
+	public void setStatus(StatusCompra status) {
 		this.status = status;
 	}
 
