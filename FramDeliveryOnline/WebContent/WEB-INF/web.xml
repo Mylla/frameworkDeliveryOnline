@@ -2,22 +2,32 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>FramDeliveryOnline</display-name>
   <welcome-file-list>
-  	<welcome-file>login.jsp</welcome-file>
-    <!-- <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file> -->
+    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-      <servlet-name>EnviarDados</servlet-name>
-      <servlet-class>controller.EnviarDados</servlet-class>
+    <servlet-name>EnviarDados</servlet-name>
+    <servlet-class>servlet.EnviarDados</servlet-class>
   </servlet>
-
   <servlet-mapping>
-      <servlet-name>EnviarDados</servlet-name>
-      <url-pattern>/EnviarDados</url-pattern>
+    <servlet-name>EnviarDados</servlet-name>
+    <url-pattern>/EnviarDados</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>EnviaDadosCliente</servlet-name>
+    <servlet-class>servlet.EnviaDadosCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnviaDadosCliente</servlet-name>
+    <url-pattern>/EnviaDadosCliente</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>EnviaDadosAdm</servlet-name>
+    <servlet-class>servlet.EnviaDadosAdm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnviaDadosAdm</servlet-name>
+    <url-pattern>/EnviaDadosAdm</url-pattern>
+  </servlet-mapping>
 </web-app>

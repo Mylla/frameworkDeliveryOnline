@@ -16,10 +16,8 @@
 		*Senha: <input type="password" name="senha" value="" />
 		<br/> <br/>
 		<input type="submit" value="Acessar"/>
-		
+		<a href="CadastrarCliente.jsp">Cadastre-se</a>
 	</form>
-	
-		<input type="submit" value="Cadastre-se"/>
 	<br/> <br/>
 	${msg}
 </body>

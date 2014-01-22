@@ -17,19 +17,19 @@ public class LoginBusiness {
 		ConfInicial ci = new ConfInicial();
 		ci.configura();
 		boolean logado = false;
-		List<Administrador> adm = ci.getAdministradores();
-		List<Cliente> cliente = ci.getClientes();
+		List<Administrador> adms = ci.getAdministradores();
+		List<Cliente> clientes = ci.getClientes();
 		
-		for(int i=0; i < adm.size();i++)
+		for(int i=0; i < adms.size();i++)
 		{
-			if (adm.get(i).getLogin().equals(login) && adm.get(i).getSenha().equals(senha)) {
+			if (adms.get(i).getLogin().equals(login) && adms.get(i).getSenha().equals(senha)) {
 				logado = true;
 			}
 		}
 		
-		for(int i=0; i < cliente.size();i++)
+		for(int i=0; i < clientes.size();i++)
 		{
-			if (cliente.get(i).getLogin().equals(login) && cliente.get(i).getSenha().equals(senha)) {
+			if (clientes.get(i).getLogin().equals(login) && clientes.get(i).getSenha().equals(senha)) {
 				logado = true;
 			}
 		}

@@ -10,15 +10,15 @@
    <h3>Cadastro de Cliente</h3>     
     <h4>* Preenchimento obrigatório</h4>
        <br /><br /> 
-   <form action="EnviarDados?cmd=cadastrar" method="post">  <!-- fazer o metodo enviar dados e cadastrar -->
-     
-      <input type="submit" value="ESCOLHER IMAGEM" />
+   <form action="EnviaDadosCliente?cmd=cadastrar" method="post">  <!-- fazer o metodo enviar dados e cadastrar -->
+      <!--  <input type="text" value="Caminho da imagem" name="imagem" />
+      <img alt="sua imagem" src="images/cliente.png">-->
       <br /><br />
       *Nome: <input type="text" name="nome" />  
       <br /><br />  
-      *CPF: <input type="text" name="" />  
+      *CPF: <input type="text" name="cpf" />  
       <br /><br />  
-      *Data de nascimento: <input type="text" name="idade" />  
+      *Data de nascimento: <input type="text" name="dtNasc" />  
       <br /><br />
       *E-mail: <input type="text" name="email" />  
       <br /><br />
@@ -35,10 +35,9 @@
       *CEP: <input type="text" name="cep" />  
       <br /><br />
       
-      <input type="submit" value="SALVAR" />
-      <input type="submit" value="VOLTAR" />  
+      <input type="submit" value="Salvar" />
+      <a href="login.jsp">Voltar</a>  
       
-       
    </form>  
    <br /><br />  
    ${msg }     
