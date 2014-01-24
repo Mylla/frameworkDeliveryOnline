@@ -12,25 +12,25 @@ public class LoginBusiness {
 		super();
 	}
 
-	public boolean Login(String login, String senha) {
+	public String Login(String login, String senha) {
 
 		ConfInicial ci = new ConfInicial();
 		ci.configura();
-		boolean logado = false;
+		String logado = "deslogado";
 		List<Administrador> adms = ci.getAdministradores();
 		List<Cliente> clientes = ci.getClientes();
 		
 		for(int i=0; i < adms.size();i++)
 		{
 			if (adms.get(i).getLogin().equals(login) && adms.get(i).getSenha().equals(senha)) {
-				logado = true;
+				logado = "adm";
 			}
 		}
 		
 		for(int i=0; i < clientes.size();i++)
 		{
 			if (clientes.get(i).getLogin().equals(login) && clientes.get(i).getSenha().equals(senha)) {
-				logado = true;
+				logado = "cliente";
 			}
 		}
 		
