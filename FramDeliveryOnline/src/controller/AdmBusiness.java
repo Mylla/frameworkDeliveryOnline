@@ -13,10 +13,10 @@ public class AdmBusiness {
 	
 	public boolean Cadastra(String nome, String cpf,String dtNasc, String email,String login, String senha,String endereco, String cidade,String estado, String cep,String delivery) {
 
-		ConfInicial ci = new ConfInicial();
-		ci.configura();
+		BaseDados bd = new BaseDados();
+		bd.configura();
 		boolean cadastro = false;
-		List<Administrador> adms = ci.getAdministradores();
+		List<Administrador> adms = bd.getAdministradores();
 		
 		Administrador adm = new Administrador("", nome, cpf, dtNasc, endereco, cidade, estado, cep, email, login, senha, delivery);
 		
