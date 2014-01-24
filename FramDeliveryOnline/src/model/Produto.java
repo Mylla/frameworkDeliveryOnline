@@ -15,6 +15,7 @@ public abstract class Produto {
 	private double desconto;
 	private double peso;
 	private String loja;
+	private ArrayList<ClienteObserver> observers;
 	
 	public Produto(ArrayList<ClienteObserver> observers, String codigo, String imagem, String nome, String tipo,
 			String descricao, int qtdEstoque, int qtdVendida, double preco,
