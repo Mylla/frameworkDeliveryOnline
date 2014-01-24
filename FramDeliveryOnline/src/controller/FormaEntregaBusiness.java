@@ -14,10 +14,10 @@ public class FormaEntregaBusiness {
 	
 	public boolean Cadastra(String codigo, String nome,String descricao, String tipo, String campoExtra) {
 
-		ConfInicial ci = new ConfInicial();
-		ci.configura();
+		BaseDados bd = new BaseDados();
+		bd.configura();
 		boolean cadastro = false;
-		List<FormaEntrega> fes = ci.getFormasEntrega();
+		List<FormaEntrega> fes = bd.getFormasEntrega();
 		
 		FormaEntrega fe = new Motoboy(codigo,nome,descricao,tipo, campoExtra);
 		
