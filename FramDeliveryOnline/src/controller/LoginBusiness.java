@@ -14,11 +14,11 @@ public class LoginBusiness {
 
 	public String Login(String login, String senha) {
 
-		ConfInicial ci = new ConfInicial();
-		ci.configura();
+		BaseDados bd = new BaseDados();
+		bd.configura();
 		String logado = "deslogado";
-		List<Administrador> adms = ci.getAdministradores();
-		List<Cliente> clientes = ci.getClientes();
+		List<Administrador> adms = bd.getAdministradores();
+		List<Cliente> clientes = bd.getClientes();
 		
 		for(int i=0; i < adms.size();i++)
 		{
