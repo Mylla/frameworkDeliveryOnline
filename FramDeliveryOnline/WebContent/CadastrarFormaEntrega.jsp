@@ -21,6 +21,8 @@
       Descrição: <input type="text" name="descricao" />  
       <br /><br />
       *Tipo: <input type="text" name="tipo" />  
+      <br /><br />      
+      Campo Extra: <input type="text" name="campoExtra" />  
       <br /><br />
       
       <input type="submit" value="SALVAR" />
