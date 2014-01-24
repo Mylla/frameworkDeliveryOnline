@@ -14,10 +14,10 @@ import model.Produto;
 
 /*Classe que simula um banco de dados*/
 
-public class ConfInicial {
+public class BaseDados {
 
 	// TODO adicionar as classes que faltam
-
+	private static BaseDados instancia;
 	private List<Administrador> administradores = new ArrayList<Administrador>();
 	private List<Carrinho> carrinhos = new ArrayList<Carrinho>();
 	private List<Cliente> clientes = new ArrayList<Cliente>();
@@ -26,6 +26,15 @@ public class ConfInicial {
 	private List<FormaEntrega> formasEntrega = new ArrayList<FormaEntrega>();
 	private List<FormaPagamento> formasPagamento = new ArrayList<FormaPagamento>();
 	private List<ItemProduto> itensProduto = new ArrayList<ItemProduto>();
+	
+	public static synchronized BaseDados getInstancia(){
+		if(instancia == null){
+			instancia = new BaseDados();
+		}
+		
+		return instancia;
+		
+	}
 	
 	public void configura() {
 		this.administradores.add(new Administrador("adm.jpg", "adm", "adm",
