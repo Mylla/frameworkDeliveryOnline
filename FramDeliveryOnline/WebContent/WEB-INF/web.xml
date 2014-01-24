@@ -30,4 +30,14 @@
     <servlet-name>EnviaDadosAdm</servlet-name>
     <url-pattern>/EnviaDadosAdm</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>EnviaDadosProduto</servlet-name>
+    <servlet-class>servlet.EnviaDadosProduto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnviaDadosProduto</servlet-name>
+    <url-pattern>/EnviaDadosProduto</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

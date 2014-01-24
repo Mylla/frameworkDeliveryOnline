@@ -14,10 +14,11 @@ public abstract class Produto {
 	private double preco;
 	private double desconto;
 	private double peso;
+	private String loja;
 	
 	public Produto(ArrayList<ClienteObserver> observers, String codigo, String imagem, String nome, String tipo,
 			String descricao, int qtdEstoque, int qtdVendida, double preco,
-			double desconto, double peso) {
+			double desconto, double peso, String loja) {
 		super();
 		this.codigo = codigo;
 		this.imagem = imagem;
@@ -29,6 +30,7 @@ public abstract class Produto {
 		this.preco = preco;
 		this.desconto = desconto;
 		this.peso = peso;
+		this.loja = loja;
 	}
 
 	public String getCodigo() {
@@ -109,5 +111,13 @@ public abstract class Produto {
 
 	public void setPeso(double peso) {
 		this.peso = peso;
+	}
+
+	public String getLoja() {
+		return loja;
+	}
+
+	public void setLoja(String loja) {
+		this.loja = loja;
 	}
 }
