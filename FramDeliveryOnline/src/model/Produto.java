@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public abstract class Produto {
 	
 	private String codigo;
@@ -13,7 +15,7 @@ public abstract class Produto {
 	private double desconto;
 	private double peso;
 	
-	public Produto(String codigo, String imagem, String nome, String tipo,
+	public Produto(ArrayList<ClienteObserver> observers, String codigo, String imagem, String nome, String tipo,
 			String descricao, int qtdEstoque, int qtdVendida, double preco,
 			double desconto, double peso) {
 		super();

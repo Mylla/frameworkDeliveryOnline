@@ -26,9 +26,7 @@ public class ConfInicial {
 	private List<FormaEntrega> formasEntrega = new ArrayList<FormaEntrega>();
 	private List<FormaPagamento> formasPagamento = new ArrayList<FormaPagamento>();
 	private List<ItemProduto> itensProduto = new ArrayList<ItemProduto>();
-	private List<Loja> lojas = new ArrayList<Loja>();
-
-	//tirei o construtor p funcionar rs
+	
 	public void configura() {
 		this.administradores.add(new Administrador("adm.jpg", "adm", "adm",
 				"adm", "adm", "adm", "adm", "adm", "adm", "admin", "admin",
@@ -39,19 +37,9 @@ public class ConfInicial {
 					"123456789" + i, "24/12/1970", "Rua" + i, "Salvador",
 					"Bahia", "40400000", "cliente" + i + "@gmail.com",
 					"cliente" + i, "cliente" + i));
-			FactoryDoces fabricaDoces = new FactoryDoces();
-			Produto doce = fabricaDoces.create("codigo" + i, "imagem" + i,
-					"doce" + i, "tipo" + i, "descrição" + i, 100, 10, 0.8 * i,
-					0, 0.3 * i);
-			this.produtos.add(doce);
-
+	
 		}
-		int i = 1;
-		LojaACP loja = new LojaACP("cod00" + i, "logotipo" + i, "loja" + i,
-				"tipo" + i, "Rua da loja" + i, "bairro da loja" + i,
-				"50500000", "Bahia", "Salvador", "33333333", "000000000" + i,
-				"responsavel" + i, "email@email.com", null, null);
-		this.lojas.add(loja);
+	
 
 	}
 
