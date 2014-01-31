@@ -9,13 +9,12 @@
 <body>
 	<div align="right">
 		<a href="index.html">Conta</a>
-		</td> <a href="login.jsp">Sair</a>
-		</td>
+		<td> <a href="login.jsp">Sair</a></td>
 	</div>
 
 	<table border=1>
 		<tr  align="center">
-			<td>USUÁRIO</td>
+			<td>USUï¿½RIO</td>
 			<td>ENTREGA</td>
 			<td>LOJA</td>
 			<td>PRODUTO</td>
