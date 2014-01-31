@@ -1,8 +1,8 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import model.Administrador;
 import model.BaseDados;
 
 public class LojaBusiness {
@@ -11,20 +11,14 @@ public class LojaBusiness {
 		super();
 	}
 	
-	public boolean cadastra(String nome, String cpf,String dtNasc, String email,String login, String senha,String endereco, String cidade,String estado, String cep,String delivery) {
+	public boolean cadastra(String codigo, String logotipo,String nome,String tipo,String endereco,String bairro,
+			String cep,String estado,String cidade,String telefone,String cnpj,String responsavel,String email,
+			ArrayList <String> areasEntrega,String site) {
 
 		BaseDados bd = new BaseDados();
 		bd.configura();
 		boolean cadastro = false;
-//		List<Administrador> adms = ci.getAdministradores();
-//		
-//		Administrador adm = new Administrador("", nome, cpf, dtNasc, endereco, cidade, estado, cep, email, login, senha, delivery);
-//		
-//		if(adm != null){
-//			adms.add(adm);
-//			cadastro = true;
-//		}
-		
+
 		return cadastro;
 	}
 }
