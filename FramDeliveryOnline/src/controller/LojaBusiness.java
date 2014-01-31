@@ -3,7 +3,7 @@ package controller;
 import java.util.List;
 
 import model.Administrador;
-import model.ConfInicial;
+import model.BaseDados;
 
 public class LojaBusiness {
 
@@ -13,8 +13,8 @@ public class LojaBusiness {
 	
 	public boolean cadastra(String nome, String cpf,String dtNasc, String email,String login, String senha,String endereco, String cidade,String estado, String cep,String delivery) {
 
-		ConfInicial ci = new ConfInicial();
-		ci.configura();
+		BaseDados bd = new BaseDados();
+		bd.configura();
 		boolean cadastro = false;
 //		List<Administrador> adms = ci.getAdministradores();
 //		
