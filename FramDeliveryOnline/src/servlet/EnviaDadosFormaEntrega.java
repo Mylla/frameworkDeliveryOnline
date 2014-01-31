@@ -4,11 +4,13 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.FormaEntregaBusiness;
 
+@WebServlet("/EnviaDadosFormaEntrega")
 public class EnviaDadosFormaEntrega extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -43,7 +45,7 @@ public class EnviaDadosFormaEntrega extends HttpServlet {
 					request.getRequestDispatcher("index.html").forward(request,
 							response);
 				} else {
-					request.setAttribute("msg", "Não foi possível cadastrar.");
+					request.setAttribute("msg", "Nï¿½o foi possï¿½vel cadastrar.");
 					request.getRequestDispatcher("CadastrarFormaEntrega.jsp")
 							.forward(request, response);
 				}
