@@ -1,7 +1,7 @@
 package controller;
 
 //import java.util.List;
-import model.ConfInicial;
+import model.BaseDados;
 //import model.Produto;
 
 public class ProdutoBusiness {
