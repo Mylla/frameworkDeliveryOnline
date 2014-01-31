@@ -58,4 +58,14 @@
     <url-pattern>/EnviaDadosFormaPagamento</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>EnviaDadosLoja</servlet-name>
+    <servlet-class>servlet.EnviaDadosLoja</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnviaDadosLoja</servlet-name>
+    <url-pattern>/EnviaDadosLoja</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
