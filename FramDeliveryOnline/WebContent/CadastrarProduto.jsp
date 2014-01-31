@@ -14,25 +14,26 @@
       <!--  <input type="text" value="Caminho da imagem" name="imagem" />
       <img alt="sua imagem" src="images/cliente.png">-->
       <br />
-      *Código: <input type="text" name="codigo" />  
-      <br /><br />  
-      *Nome: <input type="text" name="nome" />  
-      <br /><br />  
       *Tipo: <select name="tipo">
   				<option>Doce</option>
   				<option>Pizza</option>
   				<option>Refrigerante</option>
 			</select>  
       <br /><br />
+      *Código: <input type="text" name="codigo" />  
+      <br /><br />  
+      *Nome: <input type="text" name="nome" />  
+      <br /><br />  
+      
       *Descrição: <input type="text" name="descricao" />  
       <br /><br />
       *Quantidade em Estoque: <input type="text" name="qtdEstoque" />  
       <br /><br /> 
-      *Preço: <input type="text" name="preco" />  
+      *Preço R$: <input type="text" name="preco" />  
       <br /><br />  
       *Desconto: <input type="text" name="desconto" />  
       <br /><br />
-      *Peso R$: <input type="text" name="peso" />  
+      *Peso em gramas: <input type="text" name="peso" />  
       <br /><br />
       *Nome da loja: <select name="nomeLoja">
 		  				<option>LojaACP</option>
