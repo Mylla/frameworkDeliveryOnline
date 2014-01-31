@@ -3,7 +3,7 @@ package controller;
 import java.util.List;
 
 import model.FormaEntrega;
-import model.ConfInicial;
+import model.BaseDados;
 import model.Motoboy;
 
 public class FormaEntregaBusiness {
