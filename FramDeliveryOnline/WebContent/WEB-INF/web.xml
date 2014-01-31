@@ -40,4 +40,22 @@
     <url-pattern>/EnviaDadosProduto</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>EnviaDadosFormaEntrega</servlet-name>
+    <servlet-class>servlet.EnviaDadosFormaEntrega</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnviaDadosFormaEntrega</servlet-name>
+    <url-pattern>/EnviaDadosFormaEntrega</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>EnviaDadosFormaPagamento</servlet-name>
+    <servlet-class>servlet.EnviaDadosFormaPagamento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnviaDadosFormaPagamento</servlet-name>
+    <url-pattern>/EnviaDadosFormaPagamento</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
