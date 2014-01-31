@@ -2,7 +2,7 @@ package controller;
 
 import java.util.List;
 import model.Cliente;
-import model.ConfInicial;
+import model.BaseDados;
 
 public class ClienteBusiness {
 
