@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.LoginBusiness;
 
-@WebServlet("/EnviarDados")
+//@WebServlet("/EnviarDados")
 public class EnviarDados extends HttpServlet{
 	private static final long serialVersionUID = 1L;  
 
@@ -31,11 +31,11 @@ public class EnviarDados extends HttpServlet{
 				senha = request.getParameter("senha");
 
 				if(lb.Login(login, senha) == "cliente"){
-					request.getRequestDispatcher("index.html").forward(request, response);
+					request.getRequestDispatcher("indexCliente.jsp").forward(request, response);
 				}
 				
 				if(lb.Login(login, senha) == "adm"){
-					request.getRequestDispatcher("index.html").forward(request, response);
+					request.getRequestDispatcher("indexAdm.jsp").forward(request, response);
 				}
 				
 				if(lb.Login(login, senha) == "deslogado"){
