@@ -34,8 +34,8 @@
 			<td></td>
 			<td><a href="">Consulta</a></td>
 			<td><a href="">Consulta</a></td>
-			<td><a href="">Consulta</a></td>
-			<td><a href="">Consulta</a></td>
+			<td><a href="ConsultarFormaEntrega.jsp">Consulta</a></td>
+			<td><a href="ConsultarFormaPagamento.jsp">Consulta</a></td>
 		</tr>
 	</table>
 
