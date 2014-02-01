@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Index Administrador</title>
 </head>
-<body>
+<body background="images/bgGenerico.png">
 	<div align="right">
 		<a href="index.html">Conta</a>
 		<td> <a href="login.jsp">Sair</a></td>
@@ -14,7 +14,7 @@
 
 	<table border=1>
 		<tr  align="center">
-			<td>USUï¿½RIO</td>
+			<td>USUÁRIO</td>
 			<td>ENTREGA</td>
 			<td>LOJA</td>
 			<td>PRODUTO</td>
@@ -39,8 +39,6 @@
 		</tr>
 	</table>
 
-	<div align="right">
-		<img alt="" src="images/car.png">
-	</div>
+	
 </body>
 </html>

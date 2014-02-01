@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>
-<body>
+<body background="images/bgLogin.png">
 	<h3>Login</h3>
 	<h4>* Preenchimento Obrigatório</h4>
 	<form action="EnviarDados?cmd=login" method="post">

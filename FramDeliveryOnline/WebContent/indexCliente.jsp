@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Index Cliente</title>
 </head>
-<body>
+<body background="images/bgGenerico.png">
 
 <div align="right">
 		<a href="index.html">Conta</a>
