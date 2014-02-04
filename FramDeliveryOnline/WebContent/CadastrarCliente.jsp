@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html> <!-- PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -10,17 +10,16 @@
    <h3>Cadastro de Cliente</h3>     
     <h4>* Preenchimento obrigatório</h4>
        <br /><br /> 
-   <form action="EnviaDadosCliente?cmd=cadastrar" method="post">  <!-- fazer o metodo enviar dados e cadastrar -->
-      <!--  <input type="text" value="Caminho da imagem" name="imagem" />
-      <img alt="sua imagem" src="images/cliente.png">-->
+   <form action="EnviaDadosCliente?cmd=cadastrar" method="post">  
+      Imagem: <input type="file" name="imagem">
       <br /><br />
       *Nome: <input type="text" name="nome" />  
       <br /><br />  
       *CPF: <input type="text" name="cpf" />  
       <br /><br />  
-      *Data de nascimento: <input type="text" name="dtNasc" />  
+      *Data de nascimento: <input type="date" name="dtNasc" />  
       <br /><br />
-      *E-mail: <input type="text" name="email" />  
+      *E-mail: <input type="email" name="email" />  
       <br /><br />
       *Login: <input type="text" name="login" />  
       <br /><br /> 

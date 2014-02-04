@@ -10,14 +10,14 @@ public class ClienteBusiness {
 		super();
 	}
 	
-	public boolean Cadastra(String nome, String cpf,String dtNasc, String email,String login, String senha,String endereco, String cidade,String estado, String cep) {
+	public boolean Cadastra(String imagem,String nome, String cpf,String dtNasc, String email,String login, String senha,String endereco, String cidade,String estado, String cep) {
 
 		BaseDados bd = new BaseDados();
 		bd.configura();
 		boolean cadastro = false;
 		List<Cliente> clientes = bd.getClientes();
 		
-		Cliente c = new Cliente("", nome, cpf, dtNasc, endereco, cidade, estado, cep, email, login, senha);
+		Cliente c = new Cliente(imagem, nome, cpf, dtNasc, endereco, cidade, estado, cep, email, login, senha);
 		
 		if(c != null){
 			clientes.add(c);

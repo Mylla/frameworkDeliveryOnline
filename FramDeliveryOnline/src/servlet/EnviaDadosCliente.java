@@ -26,10 +26,11 @@ public class EnviaDadosCliente extends HttpServlet{
 		   try{
 			   String cmd = request.getParameter("cmd");
 			   ClienteBusiness cb = new ClienteBusiness();
-			   String nome, cpf, dtNasc, email, login, senha, endereco, cidade, estado, cep;
+			   String imagem, nome, cpf, dtNasc, email, login, senha, endereco, cidade, estado, cep;
 			   
 			   if(cmd.equalsIgnoreCase("cadastrar")){
 				   
+				   imagem = request.getParameter("imagem");
 				   nome = request.getParameter("nome");
 				   cpf = request.getParameter("cpf");
 				   dtNasc = request.getParameter("dtNasc");
@@ -41,9 +42,9 @@ public class EnviaDadosCliente extends HttpServlet{
 				   estado = request.getParameter("estado");
 				   cep = request.getParameter("cep");
 				   
-				   if(cb.Cadastra(nome, cpf, dtNasc, email, login, senha, endereco, cidade, estado, cep)){
+				   if(cb.Cadastra(imagem,nome, cpf, dtNasc, email, login, senha, endereco, cidade, estado, cep)){
 					   request.setAttribute("msg", "Cadastro Efetuado!");
-					   request.getRequestDispatcher("index.html").forward(request, response);
+					   request.getRequestDispatcher("CadastrarCliente.jsp").forward(request, response);
 				   }else{
 					   request.setAttribute("msg", "Não foi possível cadastrar.");
 					   request.getRequestDispatcher("CadastrarCliente.jsp").forward(request, response);
