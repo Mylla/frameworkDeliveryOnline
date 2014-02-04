@@ -26,6 +26,8 @@ public class BaseDados {
 	private List<FormaEntrega> formasEntrega = new ArrayList<FormaEntrega>();
 	private List<FormaPagamento> formasPagamento = new ArrayList<FormaPagamento>();
 	private List<ItemProduto> itensProduto = new ArrayList<ItemProduto>();
+	private List<Loja> lojas = new ArrayList<Loja>();
+
 	
 	public static synchronized BaseDados getInstancia(){
 		if(instancia == null){
@@ -33,7 +35,6 @@ public class BaseDados {
 		}
 		
 		return instancia;
-		
 	}
 	
 	public void configura() {
@@ -118,6 +119,14 @@ public class BaseDados {
 
 	public void setItensProduto(List<ItemProduto> itensProduto) {
 		this.itensProduto = itensProduto;
+	}
+
+	public List<Loja> getLojas() {
+		return lojas;
+	}
+
+	public void setLojas(List<Loja> lojas) {
+		this.lojas = lojas;
 	}
 
 }

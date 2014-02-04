@@ -2,17 +2,14 @@ package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.servlet.ServletException;
-//import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.LojaBusiness;
 
-
-
-//@WebServlet("/EnviaDadosLoja")
+@WebServlet("/EnviaDadosLoja")
 public class EnviaDadosLoja extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,11 +25,11 @@ public class EnviaDadosLoja extends HttpServlet {
 		try{
 			   String cmd = request.getParameter("cmd");
 			   LojaBusiness lb = new LojaBusiness();
-			   String codigo, logotipo, nome, tipo, endereco, bairro, cep, estado, cidade, telefone, cnpj, responsavel, email,site, ae ;
-			   ArrayList <String> areasEntrega = null; //TO COM DUVIDA DE COMO MANIPULAR ESSE ARRAY
+			   String codigo, logotipo, nome, tipo, endereco, bairro, cep, estado, cidade, telefone, cnpj, responsavel, email,site;
+			   ArrayList<String> areasEntrega = new ArrayList<String>(); 
+			   String[] areas = null;
 			   
 			   if(cmd.equalsIgnoreCase("cadastrar")){
-				   
 				   
 				   codigo = request.getParameter("codigo");
 				   logotipo = request.getParameter("logotipo");
@@ -48,17 +45,15 @@ public class EnviaDadosLoja extends HttpServlet {
 				   responsavel = request.getParameter("responsavel");
 				   email = request.getParameter("email");
 				   site = request.getParameter("site");
+				   areas = request.getParameterValues("areaEntrega");
 				   
-				   for (int i = 0; i <3; i++ ){ // verificar  CadastroLoja.jsp
-					   ae = request.getParameter("areasEntrega");
-					   areasEntrega.add(i, ae);	   
+				   for (int i = 0; i < areas.length; i++ ){ 
+					   areasEntrega.add(i, areas[i]);	   
 				   }
-				   
-				  
 				   
 				   if(lb.cadastra(codigo, logotipo, nome, tipo, endereco, bairro, cep, estado, cidade, telefone, cnpj, responsavel, email, areasEntrega, site )){
 					   request.setAttribute("msg", "Cadastro Efetuado!");
-					   request.getRequestDispatcher("index.html").forward(request, response);
+					   request.getRequestDispatcher("CadastrarLoja.jsp").forward(request, response);
 				   }else{
 					   request.setAttribute("msg", "Não foi possível cadastrar.");
 					   request.getRequestDispatcher("CadastrarLoja.jsp").forward(request, response);

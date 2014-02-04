@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public abstract class Loja {
+public class Loja {
 	private String codigo;
 	private String logotipo;  
 	private String nome;
@@ -16,13 +16,12 @@ public abstract class Loja {
 	private String cnpj;
 	private String responsavel;
 	private String email;
-	private ArrayList <String> areasEntrega = new ArrayList <String> ();
+	private ArrayList <String> areasEntrega = new ArrayList<String>();
 	private String site;
 
 	public Loja(String codigo, String logotipo,String nome,String tipo,String endereco,String bairro,
 			String cep,String estado,String cidade,String telefone,String cnpj,String responsavel,String email,
 			ArrayList <String> areasEntrega,String site) {
-		// TODO Auto-generated constructor stub
 		super();
 		this.codigo = codigo;
 		this.logotipo = logotipo;
