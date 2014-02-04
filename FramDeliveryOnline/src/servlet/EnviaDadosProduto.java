@@ -23,7 +23,7 @@ public class EnviaDadosProduto extends HttpServlet{
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
-	
+
 	}  
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
@@ -61,23 +61,23 @@ public class EnviaDadosProduto extends HttpServlet{
 				String codigo = "",produto = "", tipo = "",atePreco = "", loja = "";
 				double preco = 0.0;
 				PrintWriter out = response.getWriter();
-				
+
 				codigo = request.getParameter("codigo");
 				produto = request.getParameter("produto");
 				tipo = request.getParameter("tipo");
 				atePreco = request.getParameter("preco");
 				loja = request.getParameter("loja");
-				
+
 				if(atePreco.equals("Até R$10,00"))
 					preco = 10.00;
 				if(atePreco.equals("Até R$20,00"))
 					preco = 20.00;
 				if(atePreco.equals("Mais de R$20,00"))
 					preco = 20.01;
-				
+
 				if(pb.consulta(codigo, loja, produto, tipo, preco)){
 					busca = pb.getBusca();
-					
+
 					if(busca != null){
 						response.setContentType("text/html");
 						out.println("<html>");
@@ -91,7 +91,7 @@ public class EnviaDadosProduto extends HttpServlet{
 						out.println("<td>Editar</td>");
 						out.println("<td>Remover</td>");
 						out.println("</tr>");
-						
+
 						for (int i = 0; i < busca.size(); i++) {
 							Produto p = busca.get(i);
 							out.println("<tr>");
@@ -102,25 +102,81 @@ public class EnviaDadosProduto extends HttpServlet{
 							out.println("<td><a href='CadastrarProduto.jsp'>Remover</a></td>");
 							out.println("</tr>");
 						}
-						
+
 						out.println("</table>");
 						out.println("</body>");
 						out.println("</html>");
-						
+
 						out.close();
 					}
-					
-					request.setAttribute("msg", out);
-					//request.getRequestDispatcher("ConsultarProduto.jsp").forward(request, response);
+
 				}else{
 					request.setAttribute("msg", "Não foi possível consultar.");
 					request.getRequestDispatcher("ConsultarProduto.jsp").forward(request, response);
 				}
-				
+
+			}else if(cmd.equalsIgnoreCase("consultarCarrinho")){
+				List<Produto> busca = null;
+				String codigo = "",produto = "", tipo = "",atePreco = "", loja = "";
+				double preco = 0.0;
+				PrintWriter out = response.getWriter();
+
+				codigo = request.getParameter("codigo");
+				produto = request.getParameter("produto");
+				tipo = request.getParameter("tipo");
+				atePreco = request.getParameter("preco");
+				loja = request.getParameter("loja");
+
+				if(atePreco.equals("Até R$10,00"))
+					preco = 10.00;
+				if(atePreco.equals("Até R$20,00"))
+					preco = 20.00;
+				if(atePreco.equals("Mais de R$20,00"))
+					preco = 20.01;
+
+				if(pb.consulta(codigo, loja, produto, tipo, preco)){
+					busca = pb.getBusca();
+
+					if(busca != null){
+						response.setContentType("text/html");
+						out.println("<html>");
+						out.println("<body>");
+						out.println("<h4>Resultado da busca</h4>");
+						out.println("<table border=\"1\">");
+						out.println("<tr>");
+						out.println("<td>Imagem</td>");
+						out.println("<td>Nome</td>");
+						out.println("<td>Preço</td>");
+						out.println("<td>Detalhes</td>");
+						out.println("<td>Buscar Mais</td>");
+						out.println("</tr>");
+
+						for (int i = 0; i < busca.size(); i++) {
+							Produto p = busca.get(i);
+							out.println("<tr>");
+							out.println("<td>"+ "<img src=\""+p.getImagem()+"\"/> </td>");
+							out.println("<td>"+ p.getNome()+"</td>");
+							out.println("<td>"+ p.getPreco()+"</td>");
+							out.println("<td><a href='DetalheProduto.jsp'>Detalhes</a></td>");
+							out.println("<td><a href='ConsultarProdutoCarrinho.jsp'>Buscar Mais</a></td>");
+							out.println("</tr>");
+						}
+
+						out.println("</table>");
+						out.println("</body>");
+						out.println("</html>");
+
+						out.close();
+					}
+
+				}else{
+					request.setAttribute("msg", "Não foi possível consultar.");
+					request.getRequestDispatcher("ConsultarProdutoCarrinho.jsp").forward(request, response);
+				}
 			}
 		}catch(Exception e){
 			request.setAttribute("msg", "Erro: " + e.getMessage());
-			request.getRequestDispatcher("CadastrarProduto.jsp").forward(request, response);
+			request.getRequestDispatcher("ConsultarProdutoCarrinho.jsp").forward(request, response);
 		}
 	} 
 

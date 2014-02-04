@@ -10,9 +10,9 @@
 	<div align="left">
 		<a href="indexCliente.jsp">Página Inicial</a> > Meu Carrinho/Adicionar
 	</div>
-	<img alt="" src="images/adicionarCarrinho.png">
+	<img alt="" src="images/adicionarCarrinho.png"/>
 	<div align="center">
-		<a href="ConsultarProduto.jsp">Busque o produto</a>
+		<a href="ConsultarProdutoCarrinho.jsp">Busque o produto</a>
 	</div>
 </body>
 </html>
