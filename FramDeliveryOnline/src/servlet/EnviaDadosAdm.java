@@ -24,10 +24,11 @@ public class EnviaDadosAdm extends HttpServlet {
 		try{
 			   String cmd = request.getParameter("cmd");
 			   AdmBusiness ab = new AdmBusiness();
-			   String nome, cpf, dtNasc, email, login, senha, endereco, cidade, estado, cep,delivery;
+			   String imagem, nome, cpf, dtNasc, email, login, senha, endereco, cidade, estado, cep,delivery;
 			   
 			   if(cmd.equalsIgnoreCase("cadastrar")){
 				   
+				   imagem = request.getParameter("imagem");
 				   nome = request.getParameter("nome");
 				   cpf = request.getParameter("cpf");
 				   dtNasc = request.getParameter("dtNasc");
@@ -40,9 +41,9 @@ public class EnviaDadosAdm extends HttpServlet {
 				   cep = request.getParameter("cep");
 				   delivery = request.getParameter("delivery");
 				   
-				   if(ab.Cadastra(nome, cpf, dtNasc, email, login, senha, endereco, cidade, estado, cep, delivery)){
+				   if(ab.Cadastra(imagem,nome, cpf, dtNasc, email, login, senha, endereco, cidade, estado, cep, delivery)){
 					   request.setAttribute("msg", "Cadastro Efetuado!");
-					   request.getRequestDispatcher("index.html").forward(request, response);
+					   request.getRequestDispatcher("CadastrarAdministrador.jsp").forward(request, response);
 				   }else{
 					   request.setAttribute("msg", "Não foi possível cadastrar.");
 					   request.getRequestDispatcher("CadastrarAdministrador.jsp").forward(request, response);

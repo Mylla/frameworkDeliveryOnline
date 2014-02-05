@@ -11,14 +11,14 @@ public class AdmBusiness {
 		super();
 	}
 	
-	public boolean Cadastra(String nome, String cpf,String dtNasc, String email,String login, String senha,String endereco, String cidade,String estado, String cep,String delivery) {
+	public boolean Cadastra(String imagem, String nome, String cpf,String dtNasc, String email,String login, String senha,String endereco, String cidade,String estado, String cep,String delivery) {
 
 		BaseDados bd = new BaseDados();
 		bd.configura();
 		boolean cadastro = false;
 		List<Administrador> adms = bd.getAdministradores();
 		
-		Administrador adm = new Administrador("", nome, cpf, dtNasc, endereco, cidade, estado, cep, email, login, senha, delivery);
+		Administrador adm = new Administrador("WebContent/images/cliente.png", nome, cpf, dtNasc, endereco, cidade, estado, cep, email, login, senha, delivery);
 		
 		if(adm != null){
 			adms.add(adm);

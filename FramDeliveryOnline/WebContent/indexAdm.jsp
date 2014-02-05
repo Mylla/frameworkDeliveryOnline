@@ -32,7 +32,7 @@
 		<tr align="center">
 			<td><a href="CadastrarAdministrador.jsp">Administrador</a></td>
 			<td></td>
-			<td><a href="">Consulta</a></td>
+			<td><a href="ConsultarLoja.jsp">Consulta</a></td>
 			<td><a href="ConsultarProduto.jsp">Consulta</a></td>
 			<td><a href="ConsultarFormaEntrega.jsp">Consulta</a></td>
 			<td><a href="ConsultarFormaPagamento.jsp">Consulta</a></td>
