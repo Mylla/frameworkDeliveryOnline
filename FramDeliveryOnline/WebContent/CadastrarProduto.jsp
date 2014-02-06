@@ -10,9 +10,8 @@
    <h3>Cadastro de Produto</h3>     
     <h4>* Preenchimento obrigatório</h4>
        <br /><br /> 
-   <form action="EnviaDadosProduto?cmd=cadastrar" method="post">  <!-- fazer o metodo enviar dados e cadastrar -->
-      <!--  <input type="text" value="Caminho da imagem" name="imagem" />
-      <img alt="sua imagem" src="images/cliente.png">-->
+   <form action="EnviaDadosProduto?cmd=cadastrar" method="post">
+   	  Imagem: <input type="file" name="imagem"/>
       <br />
       *Tipo: <select name="tipo">
   				<option>Doce</option>

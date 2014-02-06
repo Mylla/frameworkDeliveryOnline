@@ -27,12 +27,16 @@ public class EnviaDadosProduto extends HttpServlet{
 	}  
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+		
+		String page = "";
+		
 		try{
 			String cmd = request.getParameter("cmd");
 			ProdutoBusiness pb = new ProdutoBusiness();
 
 			if(cmd.equalsIgnoreCase("cadastrar")){
-
+				
+				page = "CadastrarProduto.jsp";
 				String codigo, nomeLoja, imagem, nome, tipo, descricao,recheio;
 				int qtdEstoque;
 				double preco, desconto, peso;
@@ -47,10 +51,11 @@ public class EnviaDadosProduto extends HttpServlet{
 				preco = Double.parseDouble(request.getParameter("preco"));
 				desconto = Double.parseDouble(request.getParameter("desconto"));
 				peso = Double.parseDouble(request.getParameter("peso"));
-				imagem = "";
+				imagem = request.getParameter("imagem");
 
 				if(pb.cadastra(codigo, nomeLoja, imagem, nome, tipo, descricao,recheio, qtdEstoque, preco, desconto, peso)){
-					request.getRequestDispatcher("index.html").forward(request, response);
+					request.setAttribute("msg", "Cadastro efetuado.");
+					request.getRequestDispatcher("CadastrarProduto.jsp").forward(request, response);
 				}else{
 					request.setAttribute("msg", "Não foi possível cadastrar.");
 					request.getRequestDispatcher("CadastrarProduto.jsp").forward(request, response);
@@ -116,6 +121,7 @@ public class EnviaDadosProduto extends HttpServlet{
 				}
 
 			}else if(cmd.equalsIgnoreCase("consultarCarrinho")){
+				page = "ConsultarProdutoCarrinho.jsp";
 				List<Produto> busca = null;
 				String codigo = "",produto = "", tipo = "",atePreco = "", loja = "";
 				double preco = 0.0;
@@ -147,8 +153,8 @@ public class EnviaDadosProduto extends HttpServlet{
 						out.println("<td>Imagem</td>");
 						out.println("<td>Nome</td>");
 						out.println("<td>Preço</td>");
-						out.println("<td>Detalhes</td>");
-						out.println("<td>Buscar Mais</td>");
+						out.println("<td></td>");
+						out.println("<td></td>");
 						out.println("</tr>");
 
 						for (int i = 0; i < busca.size(); i++) {
@@ -157,7 +163,7 @@ public class EnviaDadosProduto extends HttpServlet{
 							out.println("<td>"+ "<img src=\""+p.getImagem()+"\"/> </td>");
 							out.println("<td>"+ p.getNome()+"</td>");
 							out.println("<td>"+ p.getPreco()+"</td>");
-							out.println("<td><a href='DetalheProduto.jsp'>Detalhes</a></td>");
+							out.println("<td><a href='DetalhesProduto.jsp?codigo=\""+p.getCodigo()+"\"'>Detalhes</a></td>");
 							out.println("<td><a href='ConsultarProdutoCarrinho.jsp'>Buscar Mais</a></td>");
 							out.println("</tr>");
 						}
@@ -173,10 +179,31 @@ public class EnviaDadosProduto extends HttpServlet{
 					request.setAttribute("msg", "Não foi possível consultar.");
 					request.getRequestDispatcher("ConsultarProdutoCarrinho.jsp").forward(request, response);
 				}
+			}else if(cmd.equalsIgnoreCase("addCarrinho")){
+				page="DetalhesProduto.jsp";
+				List<Produto> busca = null;
+				String codigo = "";
+
+				codigo = request.getParameter("codigo");
+
+				if(pb.consulta(codigo, "", "", "", 0.0)){
+					busca = pb.getBusca();
+					Produto p = busca.get(0);
+					
+					if((p != null) && (p.getQtdEstoque() > 0)){
+						
+					}else{
+						request.setAttribute("msg", "Não há produto disponível.");
+						request.getRequestDispatcher(page).forward(request, response);
+					}
+				}else{
+					request.setAttribute("msg", "O produto não existe.");
+					request.getRequestDispatcher(page).forward(request, response);
+				}
 			}
 		}catch(Exception e){
 			request.setAttribute("msg", "Erro: " + e.getMessage());
-			request.getRequestDispatcher("ConsultarProdutoCarrinho.jsp").forward(request, response);
+			request.getRequestDispatcher(page).forward(request, response);
 		}
 	} 
 

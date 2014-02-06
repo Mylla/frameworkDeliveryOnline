@@ -65,6 +65,24 @@ public class ProdutoBusiness {
 		
 		return consulta;
 	}
+	
+	public Produto getProduto(String codigo) {
+		
+		Produto p= null;
+		bd.configura();
+		List<Produto> produtos = bd.getProdutos();
+		
+		for (int i = 0; i < produtos.size(); i++) {
+			
+		    p = produtos.get(i);
+			
+			if(p.getCodigo().equals(codigo)){
+				break;
+			}
+		}
+		
+		return p;
+	}
 
 	public List<Produto> getBusca() {
 		return busca;
