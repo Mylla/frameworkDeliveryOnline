@@ -16,7 +16,7 @@ public class CarrinhoBusiness {
 		super();
 	}
 	
-	public void criaCarrinho(Cliente cliente,ItemProduto item) {
+	public Carrinho criaCarrinho(Cliente cliente,ItemProduto item) {
 
 		BaseDados bd = new BaseDados();
 		bd.configura();
@@ -44,6 +44,8 @@ public class CarrinhoBusiness {
 			listaProdutos.add(item);
 			c = new Carrinho(listaProdutos, cliente, dateFormat.format(date), calendar.getTime().toString());
 		}
+		
+		return c;
 	}
 	
 	public Carrinho getCarrinho(Cliente cliente) {

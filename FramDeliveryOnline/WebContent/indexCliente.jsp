@@ -25,7 +25,7 @@
 			<td><a href="">Visualizar</a></td>
 		</tr>
 		<tr align="center">
-			<td><a href="">Visualizar</a></td>
+			<td> <a href="">Visualizar</a></td>
 			<td></td>
 			<td></td>
 			
