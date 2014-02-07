@@ -2,6 +2,6 @@ package model;
 
 public interface ClienteStatus {
 	
-	public abstract void calculaDesconto();
+	public abstract double calculaDesconto(double totalCompra, double desconto);
 	
 }
