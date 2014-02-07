@@ -46,11 +46,12 @@ public class BaseDados {
 			this.clientes.add(new Cliente("imagem" + i, "cliente" + i,
 					"123456789" + i, "24/12/1970", "Rua" + i, "Salvador",
 					"Bahia", "40400000", "cliente" + i + "@gmail.com",
-					"cliente" + i, "cliente" + i));
+					"cliente" + i, "cliente" + i,""));
 	
 		}
 		
 		this.produtos.add(new Doce(null,"P1","images/car.jpg","produto1","doce","produto1",10,0,1.50,0.10,100,"Loja1","chocolate"));
+		this.produtos.add(new Doce(null,"P2","images/car.jpg","produto2","doce","produto2",10,0,1.50,0.10,100,"Loja1","morango"));
 		this.formasEntrega.add(new Motoboy("01","Motoboy","Descrição do Motoboy","Doce","MOT0235"));
 		this.formasPagamento.add(new Cartao("001", "Cartão", "Crédito", null, 0, null, 0, null));
 	

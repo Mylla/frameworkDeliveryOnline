@@ -17,7 +17,7 @@ public class ClienteBusiness {
 		boolean cadastro = false;
 		List<Cliente> clientes = bd.getClientes();
 		
-		Cliente c = new Cliente(imagem, nome, cpf, dtNasc, endereco, cidade, estado, cep, email, login, senha);
+		Cliente c = new Cliente(imagem, nome, cpf, dtNasc, endereco, cidade, estado, cep, email, login, senha,"");
 		
 		if(c != null){
 			clientes.add(c);

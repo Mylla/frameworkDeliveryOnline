@@ -8,5 +8,5 @@ public interface ClienteObserver {
 		this.produtos = produtos;
 	}*/
 	
-	public void update();
+	public void update(String produto);
 }

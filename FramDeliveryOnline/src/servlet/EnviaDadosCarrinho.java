@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Carrinho;
 import model.Cliente;
+import model.Doce;
 import model.ItemProduto;
 import model.Produto;
 import controller.CarrinhoBusiness;
@@ -119,6 +120,7 @@ public class EnviaDadosCarrinho extends HttpServlet {
 						//request.setAttribute("msg", "Adcionou.");
 						request.getRequestDispatcher("VisualizarCarrinho.jsp").forward(request, response);
 					}else{
+						((Doce)p).adiciona(cliente);
 						request.setAttribute("msg", "Não há produto disponível.");
 						request.getRequestDispatcher(page).forward(request, response);
 					}

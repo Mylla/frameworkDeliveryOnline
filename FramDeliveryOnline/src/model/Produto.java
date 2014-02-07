@@ -130,4 +130,9 @@ public abstract class Produto {
 	public void setObservers(ArrayList<ClienteObserver> observers) {
 		this.observers = observers;
 	}
+
+	public void remove(ClienteObserver observer) {
+		// TODO Auto-generated method stub
+		
+	}
 }

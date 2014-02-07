@@ -35,6 +35,8 @@
 	<div align="right">
 		<img alt="" src="images/car.png">
 	</div>
-
+	<br/> <br/>
+	${msg}
 </body>
+
 </html>

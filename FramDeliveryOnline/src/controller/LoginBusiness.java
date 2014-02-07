@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.List;
-
 import model.BaseDados;
 import model.Administrador;
 import model.Cliente;
@@ -35,5 +34,22 @@ public class LoginBusiness {
 		}
 		
 		return logado;
+	}
+	
+	public Cliente getCliente(String login,String senha){
+		
+		BaseDados bd = new BaseDados();
+		bd.configura();
+		List<Cliente> clientes = bd.getClientes();
+		Cliente cliente = null;
+		
+		for(int i=0; i < clientes.size();i++)
+		{
+			if (clientes.get(i).getLogin().equals(login) && clientes.get(i).getSenha().equals(senha)) {
+				cliente = clientes.get(i);
+			}
+		}
+		
+		return cliente;
 	}
 }

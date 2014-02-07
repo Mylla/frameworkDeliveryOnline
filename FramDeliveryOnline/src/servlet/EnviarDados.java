@@ -35,6 +35,7 @@ public class EnviarDados extends HttpServlet{
 
 				if(lb.Login(login, senha) == "cliente"){
 					session.setAttribute("loginCliente", login);
+					request.setAttribute("msg", lb.getCliente(login, senha).getMensagem());
 					request.getRequestDispatcher("indexCliente.jsp").forward(request, response);
 				}
 				
