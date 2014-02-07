@@ -13,6 +13,8 @@ public interface ProdutoSubject { //p cd produto deve implementar essa interface
 	
 	public void remove(ClienteObserver observer);
 	
+	public void remove(int indice);
+	
 	public void notificarObservers();
 	
 }
