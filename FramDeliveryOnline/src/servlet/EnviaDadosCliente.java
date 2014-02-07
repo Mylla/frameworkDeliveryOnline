@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.ClienteBusiness;
 
-@WebServlet("/EnviaDadosCliente")
+//@WebServlet("/EnviaDadosCliente")
 public class EnviaDadosCliente extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;

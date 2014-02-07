@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.LoginBusiness;
 
-@WebServlet("/EnviarDados")
+//@WebServlet("/EnviarDados")
 public class EnviarDados extends HttpServlet{
 	private static final long serialVersionUID = 1L;  
 

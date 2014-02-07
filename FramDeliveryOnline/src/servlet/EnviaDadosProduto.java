@@ -13,7 +13,7 @@ import controller.CarrinhoBusiness;
 import controller.ClienteBusiness;
 import controller.ProdutoBusiness;
 
-@WebServlet("/EnviaDadosProduto")
+//@WebServlet("/EnviaDadosProduto")
 public class EnviaDadosProduto extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;

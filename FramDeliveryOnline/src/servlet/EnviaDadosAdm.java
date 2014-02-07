@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.AdmBusiness;
 
-@WebServlet("/EnviaDadosAdm")
+//@WebServlet("/EnviaDadosAdm")
 public class EnviaDadosAdm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

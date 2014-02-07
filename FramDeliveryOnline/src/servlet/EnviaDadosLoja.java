@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.LojaBusiness;
 
-@WebServlet("/EnviaDadosLoja")
+//@WebServlet("/EnviaDadosLoja")
 public class EnviaDadosLoja extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
