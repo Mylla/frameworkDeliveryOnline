@@ -32,6 +32,7 @@ public abstract class Produto {
 		this.desconto = desconto;
 		this.peso = peso;
 		this.loja = loja;
+		this.observers = observers;
 	}
 
 	public String getCodigo() {
@@ -120,5 +121,13 @@ public abstract class Produto {
 
 	public void setLoja(String loja) {
 		this.loja = loja;
+	}
+
+	public ArrayList<ClienteObserver> getObservers() {
+		return observers;
+	}
+
+	public void setObservers(ArrayList<ClienteObserver> observers) {
+		this.observers = observers;
 	}
 }

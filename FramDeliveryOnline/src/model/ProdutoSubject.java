@@ -11,7 +11,7 @@ public interface ProdutoSubject { //p cd produto deve implementar essa interface
 	
 	public void adiciona(ClienteObserver observer);
 	
-	public void remove(int indice);
+	public void remove(ClienteObserver observer);
 	
 	//public void setState(Produto produto);
 	
