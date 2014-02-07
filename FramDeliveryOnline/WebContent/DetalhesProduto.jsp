@@ -15,7 +15,7 @@
 		Produto p = pb.getProduto(codigo);
 	%>
 	 <h4>Detalhes Produto</h4>
-	 <form action="EnviaDadosProduto?cmd=addCarrinho" method="post">
+	 <form action="EnviaDadosCarrinho?cmd=addCarrinho" method="post">
    	  	<img src="<%=p.getImagem()%>"/>
    	  	<p>Nome:<%=p.getNome()%></p>
    	  	<p>Tipo:<%=p.getTipo()%></p>
@@ -30,6 +30,7 @@
    </form>
    
    <a href="consultarProdutoCarrinho.jsp">Voltar</a>  
-	
+   <br /><br />  
+   ${msg }
 </body>
 </html>

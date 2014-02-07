@@ -6,9 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;  
 import javax.servlet.http.HttpServletRequest;  
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import controller.LoginBusiness;
 
-//@WebServlet("/EnviarDados")
+@WebServlet("/EnviarDados")
 public class EnviarDados extends HttpServlet{
 	private static final long serialVersionUID = 1L;  
 
@@ -21,16 +23,18 @@ public class EnviarDados extends HttpServlet{
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
 		try{
+			HttpSession session = request.getSession();
 			String cmd = request.getParameter("cmd");
 			LoginBusiness lb = new LoginBusiness();
 			String login, senha;
-
+			
 			if(cmd.equalsIgnoreCase("login")){
 
 				login = request.getParameter("login");
 				senha = request.getParameter("senha");
 
 				if(lb.Login(login, senha) == "cliente"){
+					session.setAttribute("loginCliente", login);
 					request.getRequestDispatcher("indexCliente.jsp").forward(request, response);
 				}
 				

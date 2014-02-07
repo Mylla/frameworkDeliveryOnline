@@ -16,7 +16,7 @@ import model.Produto;
 
 public class BaseDados {
 
-	// TODO adicionar as classes que faltam
+	// adicionar as classes que faltam
 	private static BaseDados instancia;
 	private List<Administrador> administradores = new ArrayList<Administrador>();
 	private List<Carrinho> carrinhos = new ArrayList<Carrinho>();
@@ -50,7 +50,7 @@ public class BaseDados {
 	
 		}
 		
-		this.produtos.add(new Doce(null,"P1","","produto1","doce","produto1",10,0,1.50,0.10,100,"Loja1","chocolate"));
+		this.produtos.add(new Doce(null,"P1","images/car.jpg","produto1","doce","produto1",10,0,1.50,0.10,100,"Loja1","chocolate"));
 		this.formasEntrega.add(new Motoboy("01","Motoboy","Descrição do Motoboy","Doce","MOT0235"));
 		this.formasPagamento.add(new Cartao("001", "Cartão", "Crédito", null, 0, null, 0, null));
 	

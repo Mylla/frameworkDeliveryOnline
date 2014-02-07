@@ -27,4 +27,21 @@ public class ClienteBusiness {
 		return cadastro;
 	}
 	
+	public Cliente getCliente(String login){
+		
+		BaseDados bd = new BaseDados();
+		bd.configura();
+		List<Cliente> clientes = bd.getClientes();
+		Cliente c = null;
+		
+		for (int i = 0; i < clientes.size(); i++) {
+			if(clientes.get(i).getLogin().equals(login)){
+				c = clientes.get(i);
+			}
+		}
+		
+		return c;
+		
+	}
+	
 }

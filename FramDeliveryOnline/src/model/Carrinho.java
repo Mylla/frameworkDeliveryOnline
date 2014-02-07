@@ -25,6 +25,10 @@ public class Carrinho {
 	public void setListaProdutos(ArrayList<ItemProduto> listaProdutos) {
 		this.listaProdutos = listaProdutos;
 	}
+	
+	public void addItemProduto(ItemProduto item){
+		this.listaProdutos.add(item);
+	}
 
 	public Cliente getCliente() {
 		return cliente;
