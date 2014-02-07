@@ -39,7 +39,7 @@
       <br /><br />
       
       <input type="submit" value="Buscar" />
-      <a href="index.html">Voltar</a>  
+      <a href="indexAdm.jsp">Voltar</a>  
       
    </form>  
    <br /><br />  
