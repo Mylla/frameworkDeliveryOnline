@@ -9,7 +9,7 @@ import model.Motoboy;
 
 public class FormaEntregaBusiness {
 	
-	BaseDados bd = new BaseDados();
+	BaseDados bd = BaseDados.getInstancia();
 	private List<FormaEntrega> busca = new ArrayList<FormaEntrega>();
 	
 	public FormaEntregaBusiness() {

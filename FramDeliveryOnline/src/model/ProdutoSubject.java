@@ -1,13 +1,6 @@
 package model;
 
-public interface ProdutoSubject { //p cd produto deve implementar essa interface
-	
-	/*ArrayList<ClienteObserver> observers;
-	Produto produto;
-	
-	public ProdutoSubject(){
-		observers = new ArrayList<ClienteObserver>();
-	}*/
+public interface ProdutoSubject { 
 	
 	public void adiciona(ClienteObserver observer);
 	

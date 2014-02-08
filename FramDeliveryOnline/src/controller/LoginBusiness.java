@@ -13,7 +13,7 @@ public class LoginBusiness {
 
 	public String Login(String login, String senha) {
 
-		BaseDados bd = new BaseDados();
+		BaseDados bd = BaseDados.getInstancia();
 		bd.configura();
 		String logado = "deslogado";
 		List<Administrador> adms = bd.getAdministradores();
@@ -38,7 +38,7 @@ public class LoginBusiness {
 	
 	public Cliente getCliente(String login,String senha){
 		
-		BaseDados bd = new BaseDados();
+		BaseDados bd = BaseDados.getInstancia();
 		bd.configura();
 		List<Cliente> clientes = bd.getClientes();
 		Cliente cliente = null;

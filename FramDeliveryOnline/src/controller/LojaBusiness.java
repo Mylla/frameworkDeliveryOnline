@@ -7,7 +7,7 @@ import model.Loja;
 
 public class LojaBusiness {
 
-	private BaseDados bd = new BaseDados();
+	private BaseDados bd = BaseDados.getInstancia();
 	
 	public LojaBusiness() {
 		super();

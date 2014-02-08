@@ -46,7 +46,6 @@ public class EnviaDadosCarrinho extends HttpServlet {
 				page="DetalhesProduto.jsp";
 				List<Produto> busca = null;
 				String codigo = "";
-				//HttpSession session = request.getSession();
 				ClienteBusiness cb = new ClienteBusiness();
 				CarrinhoBusiness carb = new CarrinhoBusiness();
 				Cliente cliente = null;
@@ -65,59 +64,6 @@ public class EnviaDadosCarrinho extends HttpServlet {
 						Carrinho carrinho = carb.criaCarrinho(cliente, item);
 						visualizarCarrinho(response, carrinho);
 						
-						//double subtotal = 0.0;
-
-						//carrinho.getListaProdutos();
-						
-						////
-
-						/*PrintWriter out = response.getWriter();
-
-							   response.setContentType("text/html");
-								out.println("<html>");
-								out.println("<body>");
-								out.println("<h4>Meu Carrinho</h4>");
-								out.println("<form action=\"EnviaDadosCarrinho?cmd=finalizarCompra\" method=\"post\"> ");
-								out.println("<table border=\"1\">");
-								out.println("<tr>");
-								out.println("<td>Imagem</td>");
-								out.println("<td>Produto</td>");
-								out.println("<td>Quantidade</td>");
-								out.println("<td>Preço Unitário</td>");
-								out.println("<td>Preço Total</td>");
-								out.println("<td></td>");
-								out.println("</tr>");
-
-								for (int i = 0; i < carrinho.getListaProdutos().size(); i++) {
-									ItemProduto itemProduto = carrinho.getListaProdutos().get(i);
-									out.println("<tr>");
-									out.println("<td>"+ "<img src=\""+itemProduto.getItem().getImagem()+"\"/> </td>");
-									out.println("<td>"+ itemProduto.getItem().getNome()+" "+itemProduto.getItem().getDescricao()+"</td>");
-									out.println("<td>"+ itemProduto.getQuantidade() +"</td>");
-									out.println("<td>"+ itemProduto.getItem().getPreco()+"</td>");
-									out.println("<td>"+ itemProduto.getItem().getPreco() * itemProduto.getQuantidade() +"</td>");
-									out.println("<td><a href='RemoverProduto.jsp?codigo=\""+p.getCodigo()+"\"'>Remover</a></td>");
-									out.println("</tr>");
-									subtotal += (itemProduto.getItem().getPreco() * itemProduto.getQuantidade());
-								}
-								out.println("<tr>");
-								out.println("<td></td>");
-								out.println("<td></td>");
-								out.println("<td></td>");
-								out.println("<td></td>");
-								out.println("<td>Subtotal R$</td>");
-								out.println("<td>"+subtotal+"</td>");
-								out.println("</tr>");
-								out.println("<input type=\"submit\" value=\"FinalizarCompra\" />");
-								out.println("</form>");
-								out.println("<a href=\"ConsultarProduto.jsp\">Continuar Comprando</a>");
-								out.println("</body>");
-								out.println("</html>");
-
-								out.close();*/
-						/////
-
-						//request.setAttribute("msg", "Adcionou.");
 						request.getRequestDispatcher("VisualizarCarrinho.jsp").forward(request, response);
 					}else{
 						((Doce)p).adiciona(cliente);
@@ -181,8 +127,8 @@ public class EnviaDadosCarrinho extends HttpServlet {
 		out.println("<td></td>");
 		out.println("<td></td>");
 		out.println("<td></td>");
-		out.println("<td>Subtotal R$</td>");
-		out.println("<td>"+subtotal+"</td>");
+		out.println("<td>Subtotal com desconto R$</td>");
+		out.println("<td>"+carrinho.getCliente().getStatus().calculaDesconto(subtotal,0.1) +"</td>");
 		out.println("</tr>");
 		out.println("<input type=\"submit\" value=\"FinalizarCompra\" />");
 		out.println("</form>");

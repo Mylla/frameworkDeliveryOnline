@@ -18,7 +18,7 @@ public class CarrinhoBusiness {
 	
 	public Carrinho criaCarrinho(Cliente cliente,ItemProduto item) {
 
-		BaseDados bd = new BaseDados();
+		BaseDados bd = BaseDados.getInstancia();
 		bd.configura();
 		boolean temCarrinho = false;
 		List<Carrinho> carrinhos = bd.getCarrinhos();
@@ -51,7 +51,7 @@ public class CarrinhoBusiness {
 	public Carrinho getCarrinho(Cliente cliente) {
 		
 		Carrinho carrinho = null;
-		BaseDados bd = new BaseDados();
+		BaseDados bd = BaseDados.getInstancia();
 		bd.configura();
 		List<Carrinho> carrinhos = bd.getCarrinhos();
 		

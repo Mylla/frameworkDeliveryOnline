@@ -9,7 +9,7 @@ import model.Produto;
 public class ProdutoBusiness {
 	
 	private List<Produto> busca = new ArrayList<Produto>();
-	private BaseDados bd = new BaseDados();
+	private BaseDados bd =  BaseDados.getInstancia();	
 	
 
 	public ProdutoBusiness() {
@@ -26,13 +26,8 @@ public class ProdutoBusiness {
 		
 		switch(tipo)
 		{
-			case "doce":
+			case "Doce":
 				p = new Doce(null, codigo, imagem, nome, tipo, descricao, qtdEstoque, 0, preco, desconto, peso, nomeLoja, "");
-			break;
-			case "pizza":
-				//p = new 
-			break;
-			case "refrigerante":
 			break;
 		}
 		
@@ -53,10 +48,10 @@ public class ProdutoBusiness {
 		
 		for (int i = 0; i < produtos.size(); i++) {
 			
-			Produto p = produtos.get(i);
+			Produto p = produtos.get(i);			
 			
 			if((p.getCodigo().equals(codigo)) || (p.getLoja().equals(nomeLoja)) ||
-			   (p.getNome().equals(nome)) || (p.getTipo().equals(tipo)) || (p.getPreco() >= preco)){
+			   (p.getNome().equals(nome)) || (p.getTipo().equals(tipo)) || (p.getPreco() <= preco)){
 				
 				busca.add(p);
 				consulta = true;

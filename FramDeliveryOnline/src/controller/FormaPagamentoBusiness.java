@@ -11,7 +11,7 @@ import model.BaseDados;
 public class FormaPagamentoBusiness {
 	
 	private List<FormaPagamento> busca = new ArrayList<FormaPagamento>();
-	private BaseDados bd = new BaseDados();
+	private BaseDados bd = BaseDados.getInstancia();
 	
 	
 	public FormaPagamentoBusiness() {

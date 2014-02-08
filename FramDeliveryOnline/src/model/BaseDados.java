@@ -16,7 +16,6 @@ import model.Produto;
 
 public class BaseDados {
 
-	// adicionar as classes que faltam
 	private static BaseDados instancia;
 	private List<Administrador> administradores = new ArrayList<Administrador>();
 	private List<Carrinho> carrinhos = new ArrayList<Carrinho>();
@@ -28,33 +27,40 @@ public class BaseDados {
 	private List<ItemProduto> itensProduto = new ArrayList<ItemProduto>();
 	private List<Loja> lojas = new ArrayList<Loja>();
 
+
+	private BaseDados()
+	{
+		
+	}
 	
-	public static synchronized BaseDados getInstancia(){
+	public static BaseDados getInstancia(){
 		if(instancia == null){
 			instancia = new BaseDados();
 		}
-		
+
 		return instancia;
 	}
-	
-	public void configura() {
-		this.administradores.add(new Administrador("adm.jpg", "adm", "adm",
-				"adm", "adm", "adm", "adm", "adm", "adm", "admin", "admin",
-				"adm"));
 
-		for (int i = 0; i < 10; i++) {
-			this.clientes.add(new Cliente("imagem" + i, "cliente" + i,
-					"123456789" + i, "24/12/1970", "Rua" + i, "Salvador",
-					"Bahia", "40400000", "cliente" + i + "@gmail.com",
-					"cliente" + i, "cliente" + i,""));
-	
+	public void configura() {
+
+		if(this.administradores.size() == 0 && this.clientes.size() == 0 && this.produtos.size() == 0){
+			this.administradores.add(new Administrador("adm.jpg", "adm", "adm",
+					"adm", "adm", "adm", "adm", "adm", "adm", "admin", "admin",
+					"adm"));
+
+			for (int i = 0; i < 10; i++) {
+				this.clientes.add(new Cliente("imagem" + i, "cliente" + i,
+						"123456789" + i, "24/12/1970", "Rua" + i, "Salvador",
+						"Bahia", "40400000", "cliente" + i + "@gmail.com",
+						"cliente" + i, "cliente" + i,""));
+
+			}
+
+			this.produtos.add(new Doce(null,"P1","images/car.jpg","produto1","doce","produto1",10,0,1.50,0.10,100,"Loja1","chocolate"));
+			this.produtos.add(new Doce(null,"P2","images/car.jpg","produto2","doce","produto2",10,0,1.50,0.10,100,"Loja1","morango"));
+			this.formasEntrega.add(new Motoboy("01","Motoboy","Descrição do Motoboy","Doce","MOT0235"));
+			this.formasPagamento.add(new Cartao("001", "Cartão", "Crédito", null, 0, null, 0, null));
 		}
-		
-		this.produtos.add(new Doce(null,"P1","images/car.jpg","produto1","doce","produto1",10,0,1.50,0.10,100,"Loja1","chocolate"));
-		this.produtos.add(new Doce(null,"P2","images/car.jpg","produto2","doce","produto2",10,0,1.50,0.10,100,"Loja1","morango"));
-		this.formasEntrega.add(new Motoboy("01","Motoboy","Descrição do Motoboy","Doce","MOT0235"));
-		this.formasPagamento.add(new Cartao("001", "Cartão", "Crédito", null, 0, null, 0, null));
-	
 
 	}
 

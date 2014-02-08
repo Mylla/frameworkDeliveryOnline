@@ -30,9 +30,6 @@ public class Cliente extends Pessoa implements ClienteObserver{
 		this.mensagem = mensagem;
 	}
 
-	public void calculaDesconto(){
-		
-	}
 
 	@Override
 	public void update(String produto) {

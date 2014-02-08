@@ -12,7 +12,7 @@ public class ClienteBusiness {
 	
 	public boolean Cadastra(String imagem,String nome, String cpf,String dtNasc, String email,String login, String senha,String endereco, String cidade,String estado, String cep) {
 
-		BaseDados bd = new BaseDados();
+		final BaseDados bd = BaseDados.getInstancia();		
 		bd.configura();
 		boolean cadastro = false;
 		List<Cliente> clientes = bd.getClientes();
@@ -29,7 +29,7 @@ public class ClienteBusiness {
 	
 	public Cliente getCliente(String login){
 		
-		BaseDados bd = new BaseDados();
+		BaseDados bd = BaseDados.getInstancia();
 		bd.configura();
 		List<Cliente> clientes = bd.getClientes();
 		Cliente c = null;
