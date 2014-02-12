@@ -8,6 +8,7 @@ import model.Loja;
 public class LojaBusiness {
 
 	private BaseDados bd = BaseDados.getInstancia();
+	private List<Loja> lojas = bd.getLojas();
 	
 	public LojaBusiness() {
 		super();
@@ -17,11 +18,8 @@ public class LojaBusiness {
 			String cep,String estado,String cidade,String telefone,String cnpj,String responsavel,String email,
 			ArrayList<String> areasEntrega,String site) {
 
-		bd.configura();
 		boolean cadastro = false;
-		
-		List<Loja> lojas = bd.getLojas();
-		
+				
 		Loja l = new Loja(codigo,logotipo,nome,tipo,endereco,bairro,cep,estado,cidade,telefone,cnpj,responsavel,email,areasEntrega,site);
 				
 		if(l != null){

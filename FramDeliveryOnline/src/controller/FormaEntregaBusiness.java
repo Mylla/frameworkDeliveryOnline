@@ -18,7 +18,6 @@ public class FormaEntregaBusiness {
 	
 	public boolean Cadastra(String codigo, String nome,String descricao, String tipo, String campoExtra) {
 
-		bd.configura();
 		boolean cadastro = false;
 		List<FormaEntrega> fes = bd.getFormasEntrega();
 		
@@ -33,7 +32,7 @@ public class FormaEntregaBusiness {
 	}
 
 	public boolean consulta(String codigo, String nome, String tipo) {
-		bd.configura();
+	
 		boolean consulta = false;
 		List<FormaEntrega> formasEntrega = bd.getFormasEntrega();
 		

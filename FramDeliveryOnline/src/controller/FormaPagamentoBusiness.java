@@ -12,6 +12,7 @@ public class FormaPagamentoBusiness {
 	
 	private List<FormaPagamento> busca = new ArrayList<FormaPagamento>();
 	private BaseDados bd = BaseDados.getInstancia();
+	private List<FormaPagamento> formasPagamento = bd.getFormasPagamento();
 	
 	
 	public FormaPagamentoBusiness() {
@@ -21,14 +22,12 @@ public class FormaPagamentoBusiness {
 	public boolean Cadastra(String codigo, String nome, String imagem,
 			String tipo, double juros, Date vencimento, int parcelasSemJuros, String campoExtra) {
 
-		bd.configura();
 		boolean cadastro = false;
-		List<FormaPagamento> fps = bd.getFormasPagamento();
 		
 		FormaPagamento fp = new Cartao(codigo,nome,imagem,tipo,juros,vencimento, parcelasSemJuros, campoExtra);
 		
 		if(fp != null){
-			fps.add(fp);
+			formasPagamento.add(fp);
 			cadastro = true;
 		}
 		
@@ -37,9 +36,7 @@ public class FormaPagamentoBusiness {
 	
 	public boolean consulta(String codigo,String nome) {
 
-		bd.configura();
 		boolean consulta = false;
-		List<FormaPagamento> formasPagamento = bd.getFormasPagamento();
 		
 		for (int i = 0; i < formasPagamento.size(); i++) {
 			

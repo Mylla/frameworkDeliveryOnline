@@ -6,14 +6,10 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import model.Cliente;
-import model.ItemProduto;
 import model.Produto;
-import controller.CarrinhoBusiness;
-import controller.ClienteBusiness;
 import controller.ProdutoBusiness;
 
-//@WebServlet("/EnviaDadosProduto")
+@WebServlet("/EnviaDadosProduto")
 public class EnviaDadosProduto extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;

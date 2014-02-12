@@ -30,7 +30,7 @@ public class BaseDados {
 
 	private BaseDados()
 	{
-		
+		this.configura();
 	}
 	
 	public static BaseDados getInstancia(){

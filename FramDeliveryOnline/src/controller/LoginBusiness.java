@@ -7,17 +7,17 @@ import model.Cliente;
 
 public class LoginBusiness {
 
+	private BaseDados bd = BaseDados.getInstancia();
+	private List<Administrador> adms = bd.getAdministradores();
+	private List<Cliente> clientes = bd.getClientes();
+	
 	public LoginBusiness() {
 		super();
 	}
 
 	public String Login(String login, String senha) {
 
-		BaseDados bd = BaseDados.getInstancia();
-		bd.configura();
 		String logado = "deslogado";
-		List<Administrador> adms = bd.getAdministradores();
-		List<Cliente> clientes = bd.getClientes();
 		
 		for(int i=0; i < adms.size();i++)
 		{
@@ -38,9 +38,6 @@ public class LoginBusiness {
 	
 	public Cliente getCliente(String login,String senha){
 		
-		BaseDados bd = BaseDados.getInstancia();
-		bd.configura();
-		List<Cliente> clientes = bd.getClientes();
 		Cliente cliente = null;
 		
 		for(int i=0; i < clientes.size();i++)

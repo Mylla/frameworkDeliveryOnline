@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ import controller.CarrinhoBusiness;
 import controller.ClienteBusiness;
 import controller.ProdutoBusiness;
 
-//@WebServlet("/EnviaDadosCarrinho")
+@WebServlet("/EnviaDadosCarrinho")
 public class EnviaDadosCarrinho extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,6 @@ public class EnviaDadosCarrinho extends HttpServlet {
 						session.setAttribute("Cliente", cliente);
 						Carrinho carrinho = carb.criaCarrinho(cliente, item);
 						visualizarCarrinho(response, carrinho);
-						
 						request.getRequestDispatcher("VisualizarCarrinho.jsp").forward(request, response);
 					}else{
 						((Doce)p).adiciona(cliente);
@@ -92,7 +92,8 @@ public class EnviaDadosCarrinho extends HttpServlet {
 	}
 
 	public void visualizarCarrinho(ServletResponse response, Carrinho carrinho) throws IOException {
-		double subtotal = 0.0;
+		Double subtotal = 0.0, desconto = 0.0, total = 0.0;
+		DecimalFormat df = new DecimalFormat("0.00");
 		PrintWriter out = response.getWriter();
 
 		response.setContentType("text/html");
@@ -122,17 +123,37 @@ public class EnviaDadosCarrinho extends HttpServlet {
 			out.println("</tr>");
 			subtotal += (itemProduto.getItem().getPreco() * itemProduto.getQuantidade());
 		}
+		
+		desconto = carrinho.getCliente().getStatus().calculaDesconto(subtotal,0.1);
+		total = subtotal - desconto;
+		
 		out.println("<tr>");
 		out.println("<td></td>");
 		out.println("<td></td>");
 		out.println("<td></td>");
 		out.println("<td></td>");
-		out.println("<td>Subtotal com desconto R$</td>");
-		out.println("<td>"+carrinho.getCliente().getStatus().calculaDesconto(subtotal,0.1) +"</td>");
+		out.println("<td>Subtotal R$</td>");
+		out.println("<td>"+df.format(subtotal)+"</td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td></td>");
+		out.println("<td></td>");
+		out.println("<td></td>");
+		out.println("<td></td>");
+		out.println("<td>Desconto R$</td>");
+		out.println("<td>"+df.format(desconto)+"</td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td></td>");
+		out.println("<td></td>");
+		out.println("<td></td>");
+		out.println("<td></td>");
+		out.println("<td>Total R$</td>");
+		out.println("<td>"+df.format(total)+"</td>");
 		out.println("</tr>");
 		out.println("<input type=\"submit\" value=\"FinalizarCompra\" />");
 		out.println("</form>");
-		out.println("<a href=\"ConsultarProduto.jsp\">Continuar Comprando</a>");
+		out.println("<a href=\"ConsultarProdutoCarrinho.jsp\">Continuar Comprando</a>");
 		out.println("</body>");
 		out.println("</html>");
 

@@ -7,14 +7,14 @@ import model.BaseDados;
 
 public class AdmBusiness {
 
+	BaseDados bd = BaseDados.getInstancia();
+	
 	public AdmBusiness() {
 		super();
 	}
 	
 	public boolean Cadastra(String imagem, String nome, String cpf,String dtNasc, String email,String login, String senha,String endereco, String cidade,String estado, String cep,String delivery) {
 
-		BaseDados bd = BaseDados.getInstancia();
-		bd.configura();
 		boolean cadastro = false;
 		List<Administrador> adms = bd.getAdministradores();
 		

@@ -10,7 +10,7 @@ public class ProdutoBusiness {
 	
 	private List<Produto> busca = new ArrayList<Produto>();
 	private BaseDados bd =  BaseDados.getInstancia();	
-	
+	private List<Produto> produtos = bd.getProdutos();
 
 	public ProdutoBusiness() {
 		super();
@@ -19,9 +19,7 @@ public class ProdutoBusiness {
 	public boolean cadastra(String codigo,String nomeLoja,String imagem,String nome,String tipo,
 			String descricao,String recheio, int qtdEstoque,double preco,double desconto,double peso) {
 
-		bd.configura();
 		boolean cadastro = false;
-		List<Produto> produtos = bd.getProdutos();
 		Produto p = null;
 		
 		switch(tipo)
@@ -42,9 +40,7 @@ public class ProdutoBusiness {
 	
 	public boolean consulta(String codigo,String nomeLoja,String nome,String tipo,double preco) {
 
-		bd.configura();
 		boolean consulta = false;
-		List<Produto> produtos = bd.getProdutos();
 		
 		for (int i = 0; i < produtos.size(); i++) {
 			
@@ -64,8 +60,6 @@ public class ProdutoBusiness {
 	public Produto getProduto(String codigo) {
 		
 		Produto p= null;
-		bd.configura();
-		List<Produto> produtos = bd.getProdutos();
 		
 		for (int i = 0; i < produtos.size(); i++) {
 			
