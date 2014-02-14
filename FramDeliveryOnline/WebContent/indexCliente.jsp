@@ -21,7 +21,7 @@
 		</tr>
 		<tr align="center">
 			<td><a href="AdicionarAoCarrinho.jsp">Adicionar</a></td>
-			<td><a href="ConsultarProduto.jsp">Buscar</a></td>
+			<td><a href="ConsultarProdutoCarrinho.jsp">Buscar</a></td>
 			<td><a href="">Visualizar</a></td>
 		</tr>
 		<tr align="center">
