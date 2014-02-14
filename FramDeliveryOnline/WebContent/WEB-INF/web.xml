@@ -67,5 +67,13 @@
     <url-pattern>/EnviaDadosLoja</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>EnviaDadosCarrinho</servlet-name>
+    <servlet-class>servlet.EnviaDadosCarrinho</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnviaDadosCarrinho</servlet-name>
+    <url-pattern>/EnviaDadosCarrinho</url-pattern>
+  </servlet-mapping>
   
 </web-app>
