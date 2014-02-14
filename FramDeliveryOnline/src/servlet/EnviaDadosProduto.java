@@ -57,7 +57,36 @@ public class EnviaDadosProduto extends HttpServlet{
 					request.getRequestDispatcher("CadastrarProduto.jsp").forward(request, response);
 				}
 
-			}else if(cmd.equalsIgnoreCase("consultar")){
+			}else if(cmd.equalsIgnoreCase("editar")){
+				
+				page = "EditarProduto.jsp";
+				String codigo, nomeLoja, imagem, nome, tipo, descricao,recheio;
+				int qtdEstoque;
+				double preco, desconto, peso;
+
+				tipo = request.getParameter("tipo");
+				codigo = request.getParameter("codigo");
+				nomeLoja = request.getParameter("nomeLoja");
+				nome = request.getParameter("nome");
+				recheio = request.getParameter("recheio");
+				descricao = request.getParameter("descricao");
+				qtdEstoque = Integer.parseInt(request.getParameter("qtdEstoque"));
+				preco = Double.parseDouble(request.getParameter("preco"));
+				desconto = Double.parseDouble(request.getParameter("desconto"));
+				peso = Double.parseDouble(request.getParameter("peso"));
+				imagem = request.getParameter("imagem");
+
+				if(pb.editar(codigo, nomeLoja, imagem, nome, tipo, descricao,recheio, qtdEstoque, preco, desconto, peso)){
+					request.setAttribute("msg", "Edição efetuada.");
+					request.getRequestDispatcher(page).forward(request, response);
+				}else{
+					request.setAttribute("msg", "Não foi possível editar.");
+					request.getRequestDispatcher(page).forward(request, response);
+				}
+
+			}
+			
+			else if(cmd.equalsIgnoreCase("consultar")){
 				List<Produto> busca = null;
 				String codigo = "",produto = "", tipo = "",atePreco = "", loja = "";
 				double preco = 0.0;
@@ -128,7 +157,7 @@ public class EnviaDadosProduto extends HttpServlet{
 							out.println("<td>"+ p.getCodigo()+"</td>");
 							out.println("<td>"+ p.getNome()+"</td>");
 							out.println("<td>"+ p.getDescricao()+"</td>");
-							out.println("<td><a href='CadastrarProduto.jsp'>Editar</a></td>");
+							out.println("<td><a href='EditarProduto.jsp?codigo="+p.getCodigo()+"'>Editar</a></td>");
 							out.println("<td><a href='CadastrarProduto.jsp'>Remover</a></td>");
 							out.println("</tr>");
 						}

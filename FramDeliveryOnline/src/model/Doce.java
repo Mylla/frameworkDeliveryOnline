@@ -43,6 +43,7 @@ public class Doce extends Produto implements ProdutoSubject{
 		{
 			for (int i = 0; i < observers.size(); i++) {
 				observers.get(i).update(mensagem,this.getDescricao());
+				mensagem.setCliente((Cliente) observers.get(i));
 			}
 		}
 		

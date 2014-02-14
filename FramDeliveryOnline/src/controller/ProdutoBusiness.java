@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.BaseDados;
 import model.Doce;
+import model.MensagemTela;
 import model.Produto;
 
 public class ProdutoBusiness {
@@ -36,6 +37,33 @@ public class ProdutoBusiness {
 		}
 		
 		return cadastro;
+	}
+	
+	public boolean editar(String codigo,String nomeLoja,String imagem,String nome,String tipo,
+			String descricao,String recheio, int qtdEstoque,double preco,double desconto,double peso) {
+
+		boolean edicao = false;
+		Produto p = null;
+		
+		switch(tipo)
+		{
+			case "Doce":
+				p = this.getProduto(codigo);
+				p.setDesconto(desconto);
+				p.setDescricao(descricao);
+				p.setImagem(imagem);
+				p.setLoja(nomeLoja);
+				p.setNome(nome);
+				p.setPeso(peso);
+				p.setPreco(preco);
+				p.setQtdEstoque(qtdEstoque);
+				p.setTipo(tipo);
+				((Doce)p).notificarObservers(new MensagemTela("", null));
+				edicao = true;
+			break;
+		}
+		
+		return edicao;
 	}
 	
 	public boolean consulta(String codigo,String nomeLoja,String nome,String tipo,double preco,String[] filtro) {
