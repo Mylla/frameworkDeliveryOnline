@@ -61,6 +61,15 @@ public class BaseDados {
 			this.formasEntrega.add(new Motoboy("01","Motoboy","Descrição do Motoboy","Doce","MOT0235"));
 			this.formasPagamento.add(new Cartao("001", "Cartão", "Crédito", null, 0, null, 0, null));
 			this.mensagens.add(new MensagemTela("O produto1 está disponível", this.clientes.get(0)));
+			ItemProduto item = new ItemProduto(this.produtos.get(0), 1, this.produtos.get(0).getPreco());
+			ArrayList<ItemProduto> listaProdutos = new ArrayList<ItemProduto>();
+			listaProdutos.add(item);
+			this.carrinhos.add(new Carrinho(listaProdutos, this.clientes.get(0), "12/02/2014", "11:23"));
+			this.carrinhos.add(new Carrinho(listaProdutos, this.clientes.get(0), "13/02/2014", "12:23"));
+			this.carrinhos.add(new Carrinho(listaProdutos, this.clientes.get(0), "14/02/2014", "13:23"));
+			this.carrinhos.add(new Carrinho(listaProdutos, this.clientes.get(0), "15/02/2014", "14:23"));
+			this.carrinhos.add(new Carrinho(listaProdutos, this.clientes.get(0), "16/02/2014", "15:23"));
+			this.carrinhos.add(new Carrinho(listaProdutos, this.clientes.get(0), "17/02/2014", "16:23"));
 		}
 
 	}

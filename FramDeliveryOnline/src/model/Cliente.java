@@ -19,7 +19,11 @@ public class Cliente extends Pessoa implements ClienteObserver{
 	public void setStatus(ClienteStatus status) {
 		this.status = status;
 	}
-
+	
+	public void mudarStatusMaster() {
+		this.setStatus(new ClienteMaster());
+	}
+	
 	@Override
 	public void update(Mensagem mensagem,String produto) {
 		new MensagemTela("O "+produto+" está disponível!",this);

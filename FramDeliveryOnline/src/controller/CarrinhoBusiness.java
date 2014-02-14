@@ -45,6 +45,8 @@ public class CarrinhoBusiness {
 			c = new Carrinho(listaProdutos, cliente, dateFormat.format(date), calendar.getTime().toString());
 		}
 		
+		this.mudarStatus(cliente);
+		
 		return c;
 	}
 	
@@ -60,5 +62,21 @@ public class CarrinhoBusiness {
 		}
 		
 		return carrinho;
+	}
+	
+	public void mudarStatus(Cliente cliente) {
+		
+		List<Carrinho> carrinhos = bd.getCarrinhos();
+		List<Carrinho> cars = new ArrayList<Carrinho>();
+		
+		for (int i = 0; i < carrinhos.size(); i++) {
+			if(carrinhos.get(i).getCliente().getLogin().equals(cliente.getLogin())){
+				cars.add(carrinhos.get(i));
+			}
+		}
+		
+		if(cars.size() > 5){
+			cliente.mudarStatusMaster();
+		}
 	}
 }
