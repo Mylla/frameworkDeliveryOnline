@@ -3,8 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import model.Carrinho;
 import model.Cliente;
 import model.Doce;
@@ -45,7 +42,6 @@ public class EnviaDadosCarrinho extends HttpServlet {
 
 			if(cmd.equalsIgnoreCase("addCarrinho")){
 				page="DetalhesProduto.jsp";
-				List<Produto> busca = null;
 				String codigo = "";
 				ClienteBusiness cb = new ClienteBusiness();
 				CarrinhoBusiness carb = new CarrinhoBusiness();
@@ -53,9 +49,9 @@ public class EnviaDadosCarrinho extends HttpServlet {
 
 				codigo = request.getParameter("codigo");
 
-				if(pb.consulta(codigo, "", "", "", 0.0)){
-					busca = pb.getBusca();
-					Produto p = busca.get(0);
+				if(pb.getProduto(codigo) != null){
+					
+					Produto p = pb.getProduto(codigo);
 
 					if((p != null) && (p.getQtdEstoque() > 0)){
 						ItemProduto item = new ItemProduto(p, 1, p.getPreco());
@@ -119,7 +115,7 @@ public class EnviaDadosCarrinho extends HttpServlet {
 			out.println("<td>"+ itemProduto.getQuantidade() +"</td>");
 			out.println("<td>"+ itemProduto.getItem().getPreco()+"</td>");
 			out.println("<td>"+ itemProduto.getItem().getPreco() * itemProduto.getQuantidade() +"</td>");
-			out.println("<td><a href='RemoverProduto.jsp?codigo=\""+itemProduto.getItem().getCodigo()+"\"'>Remover</a></td>");
+			out.println("<td><a href='RemoverProduto.jsp?codigo="+itemProduto.getItem().getCodigo()+"'>Remover</a></td>");
 			out.println("</tr>");
 			subtotal += (itemProduto.getItem().getPreco() * itemProduto.getQuantidade());
 		}

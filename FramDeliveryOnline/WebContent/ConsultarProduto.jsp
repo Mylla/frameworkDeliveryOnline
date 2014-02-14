@@ -23,15 +23,14 @@
 			 </select> 
       <br /><br /> 
       Tipo: <select name="tipo">
-      			<option>Selecione uma opção</option>
   				<option>Doce</option>
   				<option>Pizza</option>
   				<option>Refrigerante</option>
 			</select>  
       <br /><br />
      
-      Loja: <select name="nomeLoja">
-      			<option>Selecione uma opção</option>
+      Loja: <select name="loja">
+      			<option>Loja1</option>
 		  		<option>LojaACP</option>
 		  		<option>Massas Mia</option>
 		  		<option>Beba gelado</option>

@@ -69,6 +69,35 @@ public class EnviaDadosProduto extends HttpServlet{
 				atePreco = request.getParameter("preco");
 				loja = request.getParameter("loja");
 
+				String[] filtro = {"","","","",""};
+				int indice = 0;
+				
+				if(codigo != "")
+				{
+					filtro[indice] = "codigo";
+					indice++;
+				}
+				if(produto != "")
+				{
+					filtro[indice] = "produto";
+					indice++;
+				}
+				if(tipo != "")
+				{
+					filtro[indice] = "tipo";
+					indice++;
+				}
+				if(atePreco != "")
+				{
+					filtro[indice] = "preco";
+					indice++;
+				}
+				if(loja != "")
+				{
+					filtro[indice] = "loja";
+					indice++;
+				}
+				
 				if(atePreco.equals("Até R$10,00"))
 					preco = 10.00;
 				if(atePreco.equals("Até R$20,00"))
@@ -76,7 +105,7 @@ public class EnviaDadosProduto extends HttpServlet{
 				if(atePreco.equals("Mais de R$20,00"))
 					preco = 20.01;
 
-				if(pb.consulta(codigo, loja, produto, tipo, preco)){
+				if(pb.consulta(codigo, loja, produto, tipo, preco,filtro)){
 					busca = pb.getBusca();
 
 					if(busca != null){
@@ -129,6 +158,35 @@ public class EnviaDadosProduto extends HttpServlet{
 				atePreco = request.getParameter("preco");
 				loja = request.getParameter("loja");
 
+				String[] filtro = {"","","","",""};
+				int indice = 0;
+				
+				if(codigo != "")
+				{
+					filtro[indice] = "codigo";
+					indice++;
+				}
+				if(produto != "")
+				{
+					filtro[indice] = "produto";
+					indice++;
+				}
+				if(tipo != "")
+				{
+					filtro[indice] = "tipo";
+					indice++;
+				}
+				if(atePreco != "")
+				{
+					filtro[indice] = "preco";
+					indice++;
+				}
+				if(loja != "")
+				{
+					filtro[indice] = "loja";
+					indice++;
+				}
+				
 				if(atePreco.equals("Até R$10,00"))
 					preco = 10.00;
 				if(atePreco.equals("Até R$20,00"))
@@ -136,7 +194,7 @@ public class EnviaDadosProduto extends HttpServlet{
 				if(atePreco.equals("Mais de R$20,00"))
 					preco = 20.01;
 
-				if(pb.consulta(codigo, loja, produto, tipo, preco)){
+				if(pb.consulta(codigo, loja, produto, tipo, preco,filtro)){
 					busca = pb.getBusca();
 
 					if(busca != null){
@@ -159,7 +217,7 @@ public class EnviaDadosProduto extends HttpServlet{
 							out.println("<td>"+ "<img src=\""+p.getImagem()+"\"/> </td>");
 							out.println("<td>"+ p.getNome()+"</td>");
 							out.println("<td>"+ p.getPreco()+"</td>");
-							out.println("<td><a href='DetalhesProduto.jsp?codigo=\""+p.getCodigo()+"\"'>Detalhes</a></td>");
+							out.println("<td><a href='DetalhesProduto.jsp?codigo="+p.getCodigo()+"'>Detalhes</a></td>");
 							out.println("<td><a href='ConsultarProdutoCarrinho.jsp'>Buscar Mais</a></td>");
 							out.println("</tr>");
 						}

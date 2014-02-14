@@ -38,23 +38,66 @@ public class ProdutoBusiness {
 		return cadastro;
 	}
 	
-	public boolean consulta(String codigo,String nomeLoja,String nome,String tipo,double preco) {
+	public boolean consulta(String codigo,String nomeLoja,String nome,String tipo,double preco,String[] filtro) {
 
-		boolean consulta = false;
+		boolean consulta = false,ok = false;
+		Produto p = null;
 		
 		for (int i = 0; i < produtos.size(); i++) {
 			
-			Produto p = produtos.get(i);			
+		    p = produtos.get(i);			
+			for (int j = 0; j < filtro.length; j++) {
+				switch (filtro[j]) {
+				case "codigo":
+					if(p.getCodigo().equals(codigo))
+					{
+						consulta = true;
+					}else{
+						consulta = false;
+					}
+					break;
+				case "produto":
+					if(p.getNome().equals(nome))
+					{
+						consulta = true;
+					}else{
+						consulta = false;
+					}
+					break;
+				case "preco":
+					if(p.getPreco() <= preco)
+					{
+						consulta = true;
+					}else{
+						consulta = false;
+					}
+					break;
+				case "tipo":
+					if(p.getTipo().equals(tipo))
+					{
+						consulta = true;
+					}else{
+						consulta = false;
+					}
+					break;
+				case "loja":
+					if(p.getLoja().equals(nomeLoja))
+					{
+						consulta = true;
+					}else{
+						consulta = false;
+					}
+					break;
+				}
+			}
 			
-			if((p.getCodigo().equals(codigo)) || (p.getLoja().equals(nomeLoja)) ||
-			   (p.getNome().equals(nome)) || (p.getTipo().equals(tipo)) || (p.getPreco() <= preco)){
-				
+			if(consulta){
 				busca.add(p);
-				consulta = true;
+				ok = true;
 			}
 		}
 		
-		return consulta;
+		return ok;
 	}
 	
 	public Produto getProduto(String codigo) {
