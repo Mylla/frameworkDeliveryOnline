@@ -8,6 +8,6 @@ public interface ProdutoSubject {
 	
 	public void remove(int indice);
 	
-	public void notificarObservers();
+	public void notificarObservers(Mensagem mensagem);
 	
 }

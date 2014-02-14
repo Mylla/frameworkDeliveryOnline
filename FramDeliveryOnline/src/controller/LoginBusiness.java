@@ -4,12 +4,14 @@ import java.util.List;
 import model.BaseDados;
 import model.Administrador;
 import model.Cliente;
+import model.Mensagem;
 
 public class LoginBusiness {
 
 	private BaseDados bd = BaseDados.getInstancia();
 	private List<Administrador> adms = bd.getAdministradores();
 	private List<Cliente> clientes = bd.getClientes();
+	private List<Mensagem> mensagens = bd.getMensagens();
 	
 	public LoginBusiness() {
 		super();
@@ -48,5 +50,19 @@ public class LoginBusiness {
 		}
 		
 		return cliente;
+	}
+	
+	public Mensagem showMensagem(String login,String senha) {
+		 
+		Mensagem msg = null;
+		
+		for(int i=0; i < mensagens.size();i++)
+		{
+			if (mensagens.get(i).getCliente().getLogin().equals(login) && mensagens.get(i).getCliente().getSenha().equals(senha)) {
+				msg = mensagens.get(i);
+			}
+		}
+		
+		return msg;
 	}
 }

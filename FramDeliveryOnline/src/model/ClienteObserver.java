@@ -2,11 +2,5 @@ package model;
 
 public interface ClienteObserver {
 	
-	/*protected ProdutoSubject produtos;
-	
-	public ClienteObserver(ProdutoSubject produtos){
-		this.produtos = produtos;
-	}*/
-	
-	public void update(String produto);
+	public void update(Mensagem mensagem,String produto);
 }

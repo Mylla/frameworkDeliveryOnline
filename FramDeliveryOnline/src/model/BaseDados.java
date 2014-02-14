@@ -26,7 +26,7 @@ public class BaseDados {
 	private List<FormaPagamento> formasPagamento = new ArrayList<FormaPagamento>();
 	private List<ItemProduto> itensProduto = new ArrayList<ItemProduto>();
 	private List<Loja> lojas = new ArrayList<Loja>();
-
+	private List<Mensagem> mensagens = new ArrayList<Mensagem>();
 
 	private BaseDados()
 	{
@@ -60,6 +60,7 @@ public class BaseDados {
 			this.produtos.add(new Doce(null,"P2","images/car.jpg","produto2","Doce","produto2",10,0,1.50,0.10,100,"Loja1","morango"));
 			this.formasEntrega.add(new Motoboy("01","Motoboy","Descrição do Motoboy","Doce","MOT0235"));
 			this.formasPagamento.add(new Cartao("001", "Cartão", "Crédito", null, 0, null, 0, null));
+			this.mensagens.add(new MensagemTela("O produto1 está disponível", this.clientes.get(0)));
 		}
 
 	}
@@ -135,5 +136,15 @@ public class BaseDados {
 	public void setLojas(List<Loja> lojas) {
 		this.lojas = lojas;
 	}
+	
+
+	public List<Mensagem> getMensagens() {
+		return mensagens;
+	}
+
+	public void setMensagens(List<Mensagem> mensagens) {
+		this.mensagens = mensagens;
+	}
+
 
 }

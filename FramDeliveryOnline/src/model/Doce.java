@@ -35,14 +35,14 @@ public class Doce extends Produto implements ProdutoSubject{
 	}
 
 	@Override
-	public void notificarObservers() {
+	public void notificarObservers(Mensagem mensagem) {
 		
 		ArrayList<ClienteObserver> observers = this.getObservers();
 		
 		if(this.getQtdEstoque() > 0)
 		{
 			for (int i = 0; i < observers.size(); i++) {
-				observers.get(i).update(this.getDescricao());
+				observers.get(i).update(mensagem,this.getDescricao());
 			}
 		}
 		

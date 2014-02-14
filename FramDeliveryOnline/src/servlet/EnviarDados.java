@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.LoginBusiness;
 
-//@WebServlet("/EnviarDados")
+@WebServlet("/EnviarDados")
 public class EnviarDados extends HttpServlet{
 	private static final long serialVersionUID = 1L;  
 
@@ -35,7 +35,7 @@ public class EnviarDados extends HttpServlet{
 
 				if(lb.Login(login, senha) == "cliente"){
 					session.setAttribute("loginCliente", login);
-					request.setAttribute("msg", lb.getCliente(login, senha).getMensagem());
+					request.setAttribute("msg", lb.showMensagem(login,senha).getMensagem());
 					request.getRequestDispatcher("indexCliente.jsp").forward(request, response);
 				}
 				
